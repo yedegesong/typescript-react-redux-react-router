@@ -12,27 +12,15 @@ var path = require('path');
  * @type {{index: string, details: string}|exports|module.exports}
  */
 var webpack           = require('webpack');
-var filepath = require('./www/filepath');
 //提取公用CSS
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 //var commonsPlugin = new webpack.optimize.CommonsChunkPlugin('common.js');
 var SplitByPathPlugin = require('webpack-split-by-path');
 var node_modules = path.resolve(__dirname, 'node_modules');
 var pathToSrc  = path.resolve(__dirname, 'src');
-var pathToBuild  = path.resolve(__dirname, 'www/pages');
-//页面主控制目录
-var controllerSrc = path.resolve(__dirname, 'www','ts','controller');
 
-var _entry = function(options){
-    var entry = {};
-    for (var name in options) {
-        entry[name] = controllerSrc+'/'+options[name];
-    }
-    return entry;
-}
 
 var config = {
-    pathToBuild: pathToBuild,
     //未压缩的
     //devtool: "source-map",
     //不输出
@@ -41,7 +29,11 @@ var config = {
     //devtool:"cheap-source-map",
     //devtool:"eval-source-map",
     //入口文件配置
-    entry:_entry(filepath),
+   entry: {
+        app: [
+            path.resolve(__dirname, 'ts/index')
+        ]
+    },
     resolve:     {
         extensions: ['', '.js', '.jsx','.ts','.tsx']
     },

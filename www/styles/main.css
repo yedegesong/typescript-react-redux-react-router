@@ -43,13 +43,15 @@ body{
 }
 
 .found-list{
-    padding:0 .48rem;
+    padding-right:.48rem;
 }
 .found-list>.ui-col{
-    padding:0 .48rem .48rem;
+    padding-left:.48rem;
+    padding-bottom:.48rem;
 }
 .found-list>.ui-col img{
     width:100%;
+    display:block;
 }
 
 .end-list>.ui-col{
@@ -61,3 +63,7 @@ body{
 .end-list>.ui-col img{
     width:100%;
 }
+
+.city-info{padding:.4rem 0;}
+
+.hot-list-box{}

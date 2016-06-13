@@ -2612,14 +2612,10 @@ body {
 -**/
 .ui-row {
   display: block;
-  margin-left: -10px;
-  margin-right: -10px;
 }
 .ui-row .ui-col {
   position: relative;
   min-height: 1px;
-  padding-right: 10px;
-  padding-left: 10px;
 }
 .ui-col-10,
 .ui-col-20,
@@ -2926,5 +2922,23 @@ body {
 .slick-dots li.slick-active button:before {
   color: #fff;
   opacity: 1;
+}
+.ui-text-muted {
+  color: #bbb;
+}
+.ui-text-primary {
+  color: #2db7f5;
+}
+.ui-text-info {
+  color: #57c7d4;
+}
+.ui-text-success {
+  color: #69caa0;
+}
+.ui-text-danger {
+  color: #F96868;
+}
+.ui-text-warning {
+  color: #f2a654;
 }
 /*# sourceMappingURL=app.css.map */
