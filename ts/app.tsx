@@ -4,7 +4,6 @@ import {bindActionCreators} from 'redux';
 import { Provider, connect} from 'react-redux';
 import { AppFooter} from './components/index';
 import {hashHistory} from 'react-router';
-
 class App extends React.Component<any, any> {
 
    constructor(props){
@@ -16,8 +15,8 @@ class App extends React.Component<any, any> {
     const {children,location} = this.props;
     return (
       <div className="appMain">
+          <AppFooter  pathname = {location.pathname} />
             {children}
-            <AppFooter  pathname = {location.pathname} />
       </div>
     )
   }

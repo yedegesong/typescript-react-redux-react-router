@@ -1,16 +1,13 @@
 import * as React from "react";
 import * as classNames from "classnames";
-export default class Col extends React.Component<any,any> {
+export default class Flex extends React.Component<any,any> {
     /**
-     * 删格布局容器
+     * 盒子删格布局容器
      */
     render() {
-        const {children,span,flex,className} = this.props;
-        let typeCol = 'ui-col-';
+        const {children,className} = this.props;
         let addClassName = className;
-        let Cls = classNames('ui-col', {
-            [`${typeCol}${span}`]: span&&true,
-            [`${typeCol}${flex}`]: flex&&true,
+        let Cls = classNames('ui-row-flex', {
             [`${addClassName}`]: className
         });
         return (<div className = {Cls} >

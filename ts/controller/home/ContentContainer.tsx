@@ -12,7 +12,7 @@ export default class ContentContainer extends React.Component<any, any> {
   render() {
     let {params} = this.props;
     return (
-      <AppPage>
+      <AppPage transition="fadeInRight">
             <div>我是内容页{params.id}</div>
       </AppPage>
     )

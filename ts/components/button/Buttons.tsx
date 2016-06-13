@@ -1,15 +1,6 @@
 import * as React from "react";
 import * as classNames from "classnames";
-interface ButtonsProps {
-    onClick?: Function;
-    className?: string;
-    type?: any;
-    display?: any;
-    size?: any;
-    style?: any;
-    disabled?: any;
-}
-export default class Buttons extends React.Component<ButtonsProps,any> {
+export default class Buttons extends React.Component<any,any> {
 
     static defaultProps = {
         type:'default'
@@ -32,13 +23,13 @@ export default class Buttons extends React.Component<ButtonsProps,any> {
      */
     render() {
         const {children, type, size,display, className} = this.props;
-        let typeButton = 'cwgj-btn-';
+        let typeButton = 'c-btn-';
         let addClassName = className;
-        let Cls = classNames('cwgj-btn',{
+        let Cls = classNames('c-btn',{
             [`${typeButton}${type}`] : true,
-            'cwgj-btn-block':display&&display=='block',
-            'cwgj-btn-lg':size&&size=='large',
-            'cwgj-btn-sm':size&&size=='small',
+            'c-btn-block':display&&display=='block',
+            'c-btn-lg':size&&size=='large',
+            'c-btn-sm':size&&size=='small',
             [`${addClassName}`]: className
         });
         return (<button  {...this.props} className = { Cls }  onClick={(event) => this.handleClick(event) }>

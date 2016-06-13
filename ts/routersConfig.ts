@@ -12,11 +12,18 @@ const URL_CONFIG = {
         return `/details/${id}`;
     },
     /**
-     * 目的地
+     * 发现
      * @returns {string}
      */
-    destination:()=>{
-        return `destination`;
+    found:()=>{
+        return `found`;
+    },
+    /**
+     * 页面组件
+     * @returns {string}
+     */
+    element:()=>{
+        return `element`;
     }
 };
 

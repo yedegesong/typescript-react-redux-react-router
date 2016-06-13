@@ -16,7 +16,8 @@ let appRootComponent = (
             <Route path="/" component={App}>
                 <IndexRoute component={Modeules.HomeContainer}/>
                 <Route path = {URL_CONFIG.details(':id')} component={Modeules.ContentContainer}/>
-                <Route path = {URL_CONFIG.destination()} component={Modeules.CommunityContainer}/>
+                <Route path = {URL_CONFIG.found()} component={Modeules.FoundContainer}/>
+                <Route path = {URL_CONFIG.element()} component={Modeules.ElementContainer}/>
             </Route>
         </Router>
     </Provider>

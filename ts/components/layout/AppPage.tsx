@@ -1,22 +1,37 @@
 import * as React from "react";
 import * as classNames from "classnames";
-
+/**
+ * transition:
+ * fadeIn //淡入
+ * fadeInLeft//左弹淡入
+ * fadeInRight//右弹淡入
+ */
 export default class AppPage extends React.Component<any,any> {
-
+    static defaultProps = {
+        className: '',
+        ptr:false,
+        ptrTriggerDistance: 44,
+        transition: 'fadeIn',
+        transitionTime: '.2s'
+    }
     constructor(props){
         super(props);
         
     }
 
     render() {
-        const {children,className} = this.props;
+        const {children,transition,transitionTime,ptr,className} = this.props;
         let addClassName = className;
         let Cls = classNames('ui-container',{
-            [`${addClassName}`]: className
+            [`${addClassName}`]: className,
+            [`${transition}`]:transition
         });
-        return (<section className={Cls}>
-            {children}
-        </section>);
+        let styles = {
+            animation: `${transition} ${transitionTime} forwards`
+        };
+        return (<section className={Cls} style={ ptr ? {}: styles}>
+                    {children}
+                </section>);
     }
 
 }

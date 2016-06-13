@@ -1,10 +1,12 @@
 import HomeContainer from './home/HomeContainer';
-import CommunityContainer from './community/CommunityContainer';
 import ContentContainer from './home/ContentContainer';
+import FoundContainer from './found/FoundContainer';
+import ElementContainer from './element/ElementContainer';
 export default {
     HomeContainer,
-    CommunityContainer,
-    ContentContainer
+    ContentContainer,
+    FoundContainer,
+    ElementContainer
 }
 
 

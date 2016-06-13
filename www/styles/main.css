@@ -1,3 +1,63 @@
+body{
+    background-color:#f2f3f4;
+    color:#333;
+}
 .active{
   color:#0e88eb;
+}
+
+.module{
+    margin-top:.48rem;
+    background-color:#fff;
+}
+.module-title{
+    position:relative;
+    display: -webkit-box;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+    height: 50px;
+    font-size: .7rem;
+}
+
+.hot-list{
+    margin:0 .48rem;
+}
+
+.hot-list>.ui-col{
+}
+
+
+.hot-list>.info{
+    font-size:14px;
+    line-height: .9rem;
+    padding:.48rem 0 .48rem 0;
+}
+.hot-list>.img{
+    height: 4rem;
+    width: 4.56rem;
+    padding: .48rem 0 .48rem .48rem;
+}
+.hot-list>.img img{
+    width:100%;
+    height: 100%;
+}
+
+.found-list{
+    padding:0 .48rem;
+}
+.found-list>.ui-col{
+    padding:0 .48rem .48rem;
+}
+.found-list>.ui-col img{
+    width:100%;
+}
+
+.end-list>.ui-col{
+    padding: 0 .48rem;
+}
+.end-list>.ui-col:nth-child(2){
+    padding:0;
+}
+.end-list>.ui-col img{
+    width:100%;
 }

@@ -1,15 +1,17 @@
 import * as React from "react";
 import * as classNames from "classnames";
 import {hashHistory} from 'react-router';
+import {Icon} from '../index';
 /**
  * 哪些路由路径相匹配显示尾部菜单
  * @type {RegExp}
  */
-const ShowAppFooterUrls = /^\/(|destination)$/g;
+const ShowAppFooterUrls = /^\/(|found|element)$/g;
 
 export default class AppFooter extends React.Component<any,any> {
     static defaultProps = {
-        visible:true
+        visible:true,
+        links:[]
     }
     constructor(props){
         super(props);
@@ -17,9 +19,9 @@ export default class AppFooter extends React.Component<any,any> {
             visible:props.visible,
             active:props.pathname,
             links:[
-                {title: '首页', url: '/'},
-                {title: '旅行头条', url: '/hot'},
-                {title: '目的地', url: '/destination'}
+                { title: '首页', url: '/', icon: 'github' },
+                { title: '发现', url: '/found', icon: 'eyeo' },
+                { title: '组件', url: '/element', icon: 'ellipsis' }
             ]
         }
 
@@ -61,6 +63,7 @@ export default class AppFooter extends React.Component<any,any> {
         return this.state.links.map((element,keys) => {
             return <li onTouchTap={()=>this.handleGoto(element)} key = {keys}
                 className = {this.state.active === element.url ? 'active' : ''}>
+                        <Icon type={element.icon}/>
                         <div>{element.title}</div>
                     </li>
         });
@@ -72,7 +75,7 @@ export default class AppFooter extends React.Component<any,any> {
         }
         const {className} = this.props;
         let addClassName = className;
-        let Cls = classNames('ui-footer ui-footer-stable ui-border-t',{
+        let Cls = classNames('ui-footer ui-bd-t',{
             [`${addClassName}`]: className
         });
         return <footer className = {Cls}>
