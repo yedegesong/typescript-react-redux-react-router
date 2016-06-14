@@ -43,7 +43,7 @@ export default class SelectGroup extends React.Component<SelectGroupProps,any> {
         let inputClassName = "ui-form-input-select";
         const {value, name, items,className} = this.props;
         let addClassName = className;
-        let Cls = classNames('ui-form-select-container', { [`${addClassName}`]: className });
+        let Cls = classNames('ui-form-select', { [`${addClassName}`]: className });
         return (
             <div className={Cls}>
                 <select

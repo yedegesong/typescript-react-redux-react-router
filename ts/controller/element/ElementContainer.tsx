@@ -11,15 +11,24 @@ import { AppPage,
     Buttons,
     FormGroup,
     FormItems,
-    InputText
+    InputText,
+    InputSelect,
+    InputRadio
 } from '../../components/index';
 let divStyle = {
     marginBottom: '10px',
 };
 export default class ElementContainer extends React.Component<any, any> {
-  
-  constructor(props) {
-        super(props);
+   date:any;
+    constructor(props) {
+            super(props);
+            this.date = [{
+                label: '北京',
+                value: '1'
+            }];
+        }
+    handleInputChange(event) {
+        console.log(event.target.value)
     }
     handleButton(){
         alert('点击')
@@ -46,6 +55,13 @@ export default class ElementContainer extends React.Component<any, any> {
                 <div><h3>5</h3></div>
                 <div><h3>6</h3></div>
             </Carousel>
+          </div>
+          <div>
+              <h3>文本字体颜色</h3>
+              <div className="ui-text-muted">在鼠标经过时颜色可以加深，就像默认的链接一样</div>
+              <div className="ui-text-primary">在鼠标经过时颜色可以加深，就像默认的链接一样</div>
+              <div className="ui-text-danger">在鼠标经过时颜色可以加深，就像默认的链接一样</div>
+              <div className="ui-text-warning">在鼠标经过时颜色可以加深，就像默认的链接一样</div>
           </div>
           <div>
             <h3>浮动布局</h3>
@@ -174,9 +190,24 @@ export default class ElementContainer extends React.Component<any, any> {
                     </FormItems>
                 </FormGroup>
               <h3>表单-行</h3>
-              <FormGroup horizontal>
-                  <FormItems label="用户名">
-                      <InputText type="test" />
+              <FormGroup>
+                  <FormItems label="用户名" className="ui-border-b" horizontal>
+                      <InputText type="text" placeholder="请输入账号"/>
+                  </FormItems>
+                  <FormItems label="城市" className="ui-border-b" horizontal>
+                      <InputSelect  items={this.date}  onChange={(event) => this.handleInputChange(event) } />
+                  </FormItems>
+                  <FormItems label="登录密码" horizontal>
+                      <InputText type="password" placeholder="请输入密码"/>
+                  </FormItems>
+              </FormGroup>
+              <h3>表单-单选按钮</h3>
+              <FormGroup>
+                  <FormItems className="ui-border-b" horizontal>
+                      <InputRadio label="支付宝" name="delivery_channel" value="1" />
+                  </FormItems>
+                  <FormItems horizontal>
+                      <InputRadio label="微信" name="delivery_channel" value="2" />
                   </FormItems>
               </FormGroup>
           </div>

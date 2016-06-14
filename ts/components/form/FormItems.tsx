@@ -7,6 +7,7 @@ interface FormItemsProps {
     help?:string;
     BtnFormItems?:any;
     require?:any;
+    horizontal?:any;
 }
 export default class FormItems extends React.Component<FormItemsProps,any> {
     
@@ -17,9 +18,12 @@ export default class FormItems extends React.Component<FormItemsProps,any> {
      * body 主容器 包括头部和菜单
      */
     render() {
-        const {children, label, className,help,require,BtnFormItems} = this.props;
+        const {children, label, className,help,horizontal,require,BtnFormItems} = this.props;
         let addClassName = className;
-        let contenCls = classNames('ui-form-items', { 'BtnFormItems':BtnFormItems,[`${addClassName}`]: className });
+        let contenCls = classNames('ui-form-items',
+            {  'horizontal':horizontal,
+                'BtnFormItems':BtnFormItems,
+                [`${addClassName}`]: className });
         let Cls = classNames('ui-form-label');
         let labelTel = label ? (<label className={Cls}><span>{require?<strong className="require">*</strong>:false}{label}</span></label>) : false;
         let helpTips = help ? (<div className="ui-form-items-help">{help}</div>) : false;
