@@ -13,8 +13,12 @@ import { AppPage,
     FormItems,
     InputText,
     InputSelect,
-    InputRadio
+    InputRadio,
+    RadioGroup,
+    SwitchCell,
+    CheckGroup
 } from '../../components/index';
+
 let divStyle = {
     marginBottom: '10px',
 };
@@ -203,13 +207,38 @@ export default class ElementContainer extends React.Component<any, any> {
               </FormGroup>
               <h3>表单-单选按钮</h3>
               <FormGroup>
-                  <FormItems className="ui-border-b" horizontal>
+                  <FormItems className="ui-border-b">
                       <InputRadio label="支付宝" name="delivery_channel" value="1" />
                   </FormItems>
-                  <FormItems horizontal>
+                  <FormItems className="ui-border-b">
                       <InputRadio label="微信" name="delivery_channel" value="2" />
                   </FormItems>
               </FormGroup>
+              <h3>表单-单选按钮-行</h3>
+              <FormGroup>
+                  <FormItems label="性别"  horizontal>
+                      <RadioGroup>
+                          <InputRadio label="男" name="delivery_channel" value="1" />
+                          <InputRadio label="女" name="delivery_channel" value="2"  />
+                      </RadioGroup>
+                  </FormItems>
+              </FormGroup>
+              <h3>表单-复选框-开光</h3>
+              <div>
+                  <FormGroup>
+                      <FormItems label="开关"  >
+                          <SwitchCell checked/>
+                      </FormItems>
+                  </FormGroup>
+              </div>
+              <h3>表单-复选框</h3>
+              <div>
+                  <FormGroup>
+                      <FormItems>
+                          <CheckGroup  options={[{ label: '短信通知', value: '1' }, { label: '邮件通知', value: '2' }]} defaultValue={['1']} />
+                      </FormItems>
+                  </FormGroup>
+              </div>
           </div>
       </AppPage>
     )

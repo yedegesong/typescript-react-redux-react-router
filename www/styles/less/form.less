@@ -48,6 +48,7 @@
 }
 //表单水平
 .@{css-prefix}form-items.horizontal{
+
 	.webkit-box();
 	.box-align();
 	.box-pack();
@@ -58,7 +59,8 @@
 	color:#999;
 }
 
-.@{css-prefix}form-items.horizontal .@{css-prefix}form-text{
+.@{css-prefix}form-items.horizontal .@{css-prefix}form-text,
+.@{css-prefix}form-items.horizontal .@{css-prefix}form-redio-group{
 	.box-flex(1);
 }
 
@@ -201,6 +203,11 @@
 	left: 5px;
 	top: 5px;
 }
+.@{css-prefix}form-redio-group>.@{css-prefix}form-radio{
+	display: inline-block;
+	margin-right:8px;
+}
+//单选按钮行
 
 //复选框
 .@{css-prefix}form-input-checkbox>input[type='checkbox']{
@@ -270,8 +277,81 @@
 
 }
 
-.@{css-prefix}form-checkbox-group>.@{css-prefix}form-checkbox,
-.@{css-prefix}form-redio-group>.@{css-prefix}form-radio{
-	display: inline-block;
-	margin-right:8px;
+.@{css-prefix}form-input-checkbox{
+	display: block;
+}
+.@{css-prefix}form-checkbox{
+	padding:.48rem 0;
+}
+/**--
+	切换按钮
+--**/
+
+.@{css-prefix}switch {
+    position: absolute;
+    font-size: 16px;
+    right: 15px;
+    top: 50%;
+    margin-top: -16px;
+    width: 52px;
+    height: 32px;
+    line-height: 32px;
+}
+.@{css-prefix}switch input {
+    width: 52px;
+    height: 32px;
+    position: absolute;
+    z-index: 2;
+    border: 0;
+    background: 0 0;
+    -webkit-appearance: none;
+    outline: 0;
+}
+
+.@{css-prefix}switch input:before {
+    content: '';
+    width: 50px;
+    height: 30px;
+    border: 1px solid #dfdfdf;
+    background-color: #fdfdfd;
+    border-radius: 20px;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+    border-color: #dfdfdf;
+    -webkit-box-shadow: #dfdfdf 0 0 0 0 inset;
+    box-shadow: #dfdfdf 0 0 0 0 inset;
+    -webkit-transition: border .4s,-webkit-box-shadow .4s;
+    transition: border .4s,box-shadow .4s;
+    -webkit-background-clip: content-box;
+    background-clip: content-box;
+}
+.@{css-prefix}switch input:after {
+    content: '';
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 1px;
+    left: 0;
+    border-radius: 100%;
+    background-color: #fff;
+    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.4);
+    box-shadow: 0 1px 3px rgba(0,0,0,.4);
+    -webkit-transition: left .2s;
+    transition: left .2s;
+}
+.@{css-prefix}switch input:checked:before {
+    border-color: #64bd63;
+    -webkit-box-shadow: #64bd63 0 0 0 16px inset;
+    box-shadow: #64bd63 0 0 0 16px inset;
+    background-color: #64bd63;
+    transition: border .4s,box-shadow .4s,background-color 1.2s;
+    -webkit-transition: border .4s,-webkit-box-shadow .4s,background-color 1.2s;
+    background-color: #64bd63;
+}
+.@{css-prefix}switch input:checked:after {
+    left: 21px;
 }

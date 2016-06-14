@@ -15,6 +15,7 @@ import InputRadio from './form/InputRadio';
 import InputCheckbox from './form/InputCheckbox';
 import CheckGroup from './form/CheckGroup';
 import RadioGroup from './form/RadioGroup';
+import SwitchCell from './form/SwitchCell';
 import Textarea from './form/Textarea';
 import InfoText from './form/InfoText';
 export {
@@ -35,5 +36,6 @@ export {
     CheckGroup,
     Textarea,
     RadioGroup,
-    InfoText
+    InfoText,
+    SwitchCell
 }
