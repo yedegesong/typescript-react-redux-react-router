@@ -2,6 +2,14 @@ body{
     background-color:#f2f3f4;
     color:#333;
 }
+.appMain{
+    position: absolute;
+    width:100%;
+    top:0;
+    left:0;
+    overflow-x:hidden;
+    overflow-y:auto;
+}
 .active{
   color:#0e88eb;
 }
@@ -19,51 +27,3 @@ body{
     font-size: .7rem;
 }
 
-.hot-list{
-    margin:0 .48rem;
-}
-
-.hot-list>.ui-col{
-}
-
-
-.hot-list>.info{
-    font-size:14px;
-    line-height: .9rem;
-    padding:.48rem 0 .48rem 0;
-}
-.hot-list>.img{
-    height: 4rem;
-    width: 4.56rem;
-    padding: .48rem 0 .48rem .48rem;
-}
-.hot-list>.img img{
-    width:100%;
-    height: 100%;
-}
-
-.found-list{
-    padding-right:.48rem;
-}
-.found-list>.ui-col{
-    padding-left:.48rem;
-    padding-bottom:.48rem;
-}
-.found-list>.ui-col img{
-    width:100%;
-    display:block;
-}
-
-.end-list>.ui-col{
-    padding: 0 .48rem;
-}
-.end-list>.ui-col:nth-child(2){
-    padding:0;
-}
-.end-list>.ui-col img{
-    width:100%;
-}
-
-.city-info{padding:.4rem 0;}
-
-.hot-list-box{}

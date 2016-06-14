@@ -70,7 +70,7 @@ var config = {
                     NODE_ENV: JSON.stringify('production')
                 }
             }),
-        new ExtractTextPlugin("app.css"),
+         new ExtractTextPlugin("app.css"),
          new webpack.optimize.UglifyJsPlugin({
                 output: {
                     comments: false
@@ -84,11 +84,11 @@ var config = {
             name: "common",
             filename:"common.js"
             
-        })
-        /*new SplitByPathPlugin([
+        }),
+       /* new SplitByPathPlugin([
                     {name: 'common', path: path.join(__dirname, 'node_modules')}
                 ]
-            ),*/
+            )*/
     ]
 };
 

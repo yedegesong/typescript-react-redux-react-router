@@ -19,10 +19,10 @@ export default class FormItems extends React.Component<FormItemsProps,any> {
     render() {
         const {children, label, className,help,require,BtnFormItems} = this.props;
         let addClassName = className;
-        let contenCls = classNames('cwgj-form-items', { 'BtnFormItems':BtnFormItems,[`${addClassName}`]: className });
-        let Cls = classNames('cwgj-form-label');
+        let contenCls = classNames('ui-form-items', { 'BtnFormItems':BtnFormItems,[`${addClassName}`]: className });
+        let Cls = classNames('ui-form-label');
         let labelTel = label ? (<label className={Cls}><span>{require?<strong className="require">*</strong>:false}{label}</span></label>) : false;
-        let helpTips = help ? (<div className="cwgj-form-items-help">{help}</div>) : false;
+        let helpTips = help ? (<div className="ui-form-items-help">{help}</div>) : false;
         return (<div className={contenCls}>
                     {labelTel}
                     {children}

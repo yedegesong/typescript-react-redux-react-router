@@ -37,10 +37,10 @@ export default class InputSelect extends React.Component<InputSelectProps,any> {
     }
 
     render() {
-        let inputClassName = "cwgj-form-input-select";
+        let inputClassName = "ui-form-input-select";
         const {value, name, items,className} = this.props;
         let addClassName = className;
-        let Cls = classNames('cwgj-form-select-container', { [`${addClassName}`]: className });
+        let Cls = classNames('ui-form-select-container', { [`${addClassName}`]: className });
         return (
             <div className={Cls}>
                 <select

@@ -32,7 +32,7 @@ export default class RadioGroup extends React.Component<RadioGroupProps, any> {
                  })
         });
         let addClassName = className;
-        let Cls = classNames('cwgj-form-redio-group', { [`${addClassName}`]: className });
+        let Cls = classNames('ui-form-redio-group', { [`${addClassName}`]: className });
         return (
             <div className = {Cls}>
                 {children}

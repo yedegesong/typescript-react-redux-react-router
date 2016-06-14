@@ -54,10 +54,10 @@ export default class InputCheckbox extends React.Component<InputCheckboxProps, a
     render() {
         const {className,label} = this.props;
         let addClassName = className;
-        let Cls = classNames('cwgj-form-checkbox-container', { [`${addClassName}`]: className });
+        let Cls = classNames('ui-form-checkbox-container', { [`${addClassName}`]: className });
         return (
             <div className = {Cls}>
-                <label className="cwgj-form-input-checkbox" for={this.props.id}>
+                <label className="ui-form-input-checkbox" for={this.props.id}>
                     <input
                         {...this.props}
                         type="checkbox"

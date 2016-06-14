@@ -15,7 +15,7 @@ interface InputTextProps {
     defaultValue?: any;
     id?: any;
 }
-export default class InputText extends React.Component<any,any> {
+export default class InputText extends React.Component<InputTextProps,any> {
 
     static  defaultProps = {
     }
@@ -34,23 +34,23 @@ export default class InputText extends React.Component<any,any> {
     }
     
     render(){
-        let inputClassName = "cwgj-form-input";
+        let inputClassName = "ui-form-input";
         const {value, name, addonAfter, addonBefore,className} = this.props;
         let addClassName = className;
-        let Cls = classNames('cwgj-form-text-container', {
+        let Cls = classNames('ui-form-text', {
             'addonBefore': addonAfter && addonBefore,
             'addonAfter': addonAfter || addonBefore,
             [`${addClassName}`]: className
         });
         return (
             <div className={Cls}>
-                {addonBefore ? < div className="cwgj-input-group-addon">{addonBefore}</div> : false}
+                {addonBefore ? < div className="ui-input-group-addon">{addonBefore}</div> : false}
                 <input
                     {...this.props}
                     value={this.state.value}
                     className={inputClassName}
                     onChange={this.handleChange}/>
-                {addonAfter ? < div className="cwgj-input-group-addon">{addonAfter}</div> : false}
+                {addonAfter ? < div className="ui-input-group-addon">{addonAfter}</div> : false}
             </div>
         );
     }

@@ -15,7 +15,7 @@ interface InputTextProps {
     defaultValue?: any;
     id?: any;
 }
-export default class Textarea extends React.Component<any,any> {
+export default class Textarea extends React.Component<InputTextProps,any> {
 
     static  defaultProps = {
     }
@@ -34,10 +34,10 @@ export default class Textarea extends React.Component<any,any> {
     }
     
     render(){
-        let inputClassName = "cwgj-form-textarea";
+        let inputClassName = "ui-form-textarea";
         const {value, name, addonAfter, addonBefore,className} = this.props;
         let addClassName = className;
-        let Cls = classNames('cwgj-form-text-container', {
+        let Cls = classNames('ui-form-text-container', {
             'addonBefore': addonAfter && addonBefore,
             'addonAfter': addonAfter || addonBefore,
             [`${addClassName}`]: className

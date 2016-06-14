@@ -72,3 +72,57 @@
 .@{css-prefix}row-flex .@{css-prefix}col-4{
 	.box-flex(4);
 }
+
+/**--
+	图文栅格系统
+--**/
+.@{css-prefix}grid{
+    padding-right: .48rem;
+}
+
+.@{css-prefix}grid>.ui-col{
+	padding-left: .48rem;
+    padding-bottom: .48rem;
+}
+
+.@{css-prefix}grid>.ui-col img{
+	    width: 100%;
+    display: block;
+}
+
+/**--
+	左文右图
+--**/
+
+.@{css-prefix}grid-flex{
+	margin:0 .48rem;
+}
+
+.@{css-prefix}grid-flex-info{
+	    font-size: 14px;
+	    line-height: .9rem;
+	    padding: .48rem 0 .48rem 0;
+}
+
+/**--
+	默认图片为 300*178
+--**/
+.@{css-prefix}grid-flex-info~.@{css-prefix}grid-flex-img{
+	height: 4rem;
+    width: 4.56rem;
+    padding: .48rem 0 .48rem .48rem;
+}
+
+.@{css-prefix}grid-flex-img{
+	height: 4rem;
+    width: 4.56rem;
+    padding: .48rem .48rem .48rem 0;
+}
+
+.@{css-prefix}grid-flex-img img{
+	width:100%;
+	height:100%;
+	display: block;
+}
+
+

@@ -16,7 +16,7 @@ export default class InfoText extends React.Component<any, any> {
         const {children, horizontal, inline, className} = this.props;
         let addClassName = className;
         let Cls = classNames(
-            'cwgj-info-text',
+            'ui-info-text',
             {
                 [`${addClassName}`]: className
             });

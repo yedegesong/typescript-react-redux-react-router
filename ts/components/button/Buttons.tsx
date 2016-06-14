@@ -12,9 +12,9 @@ export default class Buttons extends React.Component<any,any> {
     }
 
     handleClick(event) {
-
-        if ( this.props.onClick) {
-            this.props.onClick(event);
+        let {onClick} = this.props;
+        if ( onClick) {
+            onClick(event);
         }
     }
 
@@ -23,13 +23,13 @@ export default class Buttons extends React.Component<any,any> {
      */
     render() {
         const {children, type, size,display, className} = this.props;
-        let typeButton = 'c-btn-';
+        let typeButton = 'ui-btn-';
         let addClassName = className;
-        let Cls = classNames('c-btn',{
+        let Cls = classNames('ui-btn',{
             [`${typeButton}${type}`] : true,
-            'c-btn-block':display&&display=='block',
-            'c-btn-lg':size&&size=='large',
-            'c-btn-sm':size&&size=='small',
+            'ui-btn-block':display&&display=='block',
+            'ui-btn-lg':size&&size=='large',
+            'ui-btn-sm':size&&size=='small',
             [`${addClassName}`]: className
         });
         return (<button  {...this.props} className = { Cls }  onClick={(event) => this.handleClick(event) }>

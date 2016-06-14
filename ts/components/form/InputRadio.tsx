@@ -35,10 +35,10 @@ export default class InputRadio extends React.Component<InputRadioProps, any> {
     render() {
         const {className, label} = this.props;
         let addClassName = className;
-        let Cls = classNames('cwgj-form-radio-container', { [`${addClassName}`]: className });
+        let Cls = classNames('ui-form-radio-container', { [`${addClassName}`]: className });
         return (
             <div className = {Cls}>
-                <label className="cwgj-form-input-radio" for={this.props.id}>
+                <label className="ui-form-input-radio" for={this.props.id}>
                     <input
                         {...this.props}
                         type="radio"

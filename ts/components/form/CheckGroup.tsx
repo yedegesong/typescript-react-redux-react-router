@@ -75,7 +75,7 @@ export default class CheckGroup extends React.Component<CheckGroupProps, any> {
     render() {
         const options = this.getOptions();
         let addClassName = this.props.className;
-        let Cls = classNames('cwgj-form-checkbox-group', { [`${addClassName}`]: this.props.className });
+        let Cls = classNames('ui-form-checkbox-group', { [`${addClassName}`]: this.props.className });
         return (
             <div className = {Cls}>
                 {

@@ -19,7 +19,7 @@ export default class FormGroup extends React.Component<any,any> {
         const {children,horizontal,inline,className} = this.props;
         let addClassName = className;
         let Cls = classNames(
-            'cwgj-form-group',
+            'ui-form',
             {'horizontal':horizontal,
                 'inline':inline,
                 [`${addClassName}`]: className});

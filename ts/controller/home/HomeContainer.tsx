@@ -62,12 +62,31 @@ class HomeContainer extends React.Component<any, any> {
                 <ul className="hot-list-box">
                     {list.map((v,i)=>{
                         return <li  key = {i} onTouchTap={()=>this.handleGoto(i)}>
-                            <Flex className="hot-list ui-border-b">
-                                <Col flex="1" className="info">
+                            <Flex className="ui-grid-flex ui-border-b">
+                                <Col flex="1" className="ui-grid-flex-info">
                                     {v.title}
                                 </Col>
-                                <Col className="img">
+                                <Col className="ui-grid-flex-img">
                                     <img src = {v.cover} />
+                                </Col>
+                            </Flex>
+                        </li>
+                        })}
+                </ul>
+            </div>
+            <div className="module">
+                <div className="module-title ui-border-b">
+                    热门头条
+                </div>
+                <ul className="hot-list-box">
+                    {list.map((v,i)=>{
+                        return <li  key = {i} onTouchTap={()=>this.handleGoto(i)}>
+                            <Flex className="ui-grid-flex ui-border-b">
+                                <Col className="ui-grid-flex-img">
+                                    <img src = {v.cover} />
+                                </Col>
+                                <Col flex="1" className="ui-grid-flex-info">
+                                    {v.title}
                                 </Col>
                             </Flex>
                         </li>
@@ -79,7 +98,7 @@ class HomeContainer extends React.Component<any, any> {
                     发现世界
                 </div>
                 <div>
-                    <Row className="found-list">
+                    <Row className="ui-grid">
                         {
                             arr.map((v,i)=>{
                                     return <Col span="33" key = {i}>
@@ -92,40 +111,6 @@ class HomeContainer extends React.Component<any, any> {
                                 })
                             }
                     </Row>
-                </div>
-            </div>
-            <div className="module">
-                <div className="module-title">
-                    放眼看世界
-                </div>
-                <div>
-                    <Row className="found-list ">
-                        {
-                            arr.map((v,i)=>{
-                                return <Col span="50" key = {i}>
-                                    <img src={v.url} />
-                                </Col>
-                                })
-                            }
-                    </Row>
-                </div>
-            </div>
-            <div className="module">
-                <div className="module-title">
-                    热门城市
-                </div>
-                <div>
-                    <Flex className="end-list">
-                        <Col flex = "1">
-                            <img src = "https://gw.alicdn.com/tps/TB1NN5TMpXXXXaKXpXXXXXXXXXX-206-206.jpg_300x300q75"/>
-                        </Col>
-                        <Col flex = "1">
-                            <img src = "https://gw.alicdn.com/tps/TB1NN5TMpXXXXaKXpXXXXXXXXXX-206-206.jpg_300x300q75"/>
-                        </Col>
-                        <Col flex = "1">
-                            <img src = "https://gw.alicdn.com/tps/TB1NN5TMpXXXXaKXpXXXXXXXXXX-206-206.jpg_300x300q75"/>
-                        </Col>
-                    </Flex>
                 </div>
             </div>
         </div>

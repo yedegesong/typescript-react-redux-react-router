@@ -1,7 +1,7 @@
 @input-hover-color:#57c5f7;
 @input-focus-color:#d5f1fd;
 //文本域提示颜色值
-.input-placeholder(@color: #999;@ft:12px){
+.input-placeholder(@color: #999;@ft:14px){
 	::-webkit-input-placeholder {
   		color: @color;
   		font-size:@ft;
@@ -21,6 +21,9 @@
 }
 .input-placeholder();
 /*--提示文本域--*/
+.@{css-prefix}form{
+	background-color:#fff;
+}
 .@{css-prefix}info-text{
 	line-height:34px;
 }
@@ -29,8 +32,9 @@
 	width:100%;
 }
 //特殊文本域
-.@{css-prefix}form-text-container{
-	.webkit-box;
+.@{css-prefix}form-text{
+	padding: .6rem 0;
+	padding:0 .48rem;
 }
 
 .@{css-prefix}form-text-container .@{css-prefix}input-group-addon{
@@ -62,13 +66,11 @@
     border-radius: 4px 0 0 4px;
 }
 .@{css-prefix}form-items{
-	margin-bottom: .5rem;
 	position:relative;
+	padding:.48rem 0;
 }
 .@{css-prefix}form-items .@{css-prefix}form-label{
 	display: block;
-	margin-bottom:5px;
-	font-size: 12px;
 }
 .@{css-prefix}form-items .@{css-prefix}form-items-help{
 	margin-top:10px;
@@ -88,57 +90,23 @@
 	vertical-align: -3px;
     margin-right: .1rem;
 }
-.@{css-prefix}form-group.horizontal .@{css-prefix}form-text-container,
-.@{css-prefix}form-group.horizontal .@{css-prefix}form-select-container,
-.@{css-prefix}form-group.horizontal .@{css-prefix}form-redio-group,
-.@{css-prefix}form-group.horizontal .@{css-prefix}form-checkbox-group,
-.@{css-prefix}form-group.horizontal>.@{css-prefix}form-items>.@{css-prefix}form-radio-container,
-.@{css-prefix}form-group.horizontal>.@{css-prefix}form-items>.@{css-prefix}form-checkbox-container,
-.@{css-prefix}form-group.horizontal .@{css-prefix}form-items-help,
-.@{css-prefix}form-group.horizontal .@{css-prefix}info-text
-{
-	padding-left: 3.5rem;
-}
-.@{css-prefix}form-group.horizontal .@{css-prefix}form-items-help{
+
+.@{css-prefix}form.horizontal .@{css-prefix}form-items-help{
 	color:#bbb;
 }
 
-.@{css-prefix}form-group.horizontal>.@{css-prefix}form-items.BtnFormItems{
-	text-align: center;
-	.box-pack;
-}
-//表单内联
-.@{css-prefix}form-group.inline{
-	.webkit-box;
-	.box-align();
-}
-.@{css-prefix}form-group.inline .@{css-prefix}form-label,
-.@{css-prefix}form-group.inline .@{css-prefix}form-text-container,
-.@{css-prefix}form-group.inline .@{css-prefix}form-items{
-	margin-right:10px;
-}
-.@{css-prefix}form-group.inline .@{css-prefix}btn{
-	margin-bottom:0;
-}
+
 //表单文本框
-.@{css-prefix}form-input[type='test'],
+.@{css-prefix}form-input[type='text'],
 .@{css-prefix}form-input[type='password'],
 .@{css-prefix}form-input[type='number'],
 .@{css-prefix}form-input-select{
-	position:relative;
-	display: block;
 	width: 100%;
-	height: 34px;
-	padding: 6px 12px;
-	font-size: 14px;
-	line-height: 1.42857143;
-	color: #555;
-	background-color: #fff;
-	background-image: none;
-	border: 1px solid #ccc;
-	border-radius: 4px;
-	-webkit-appearance: none;
-	.transition(all,.15s);
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    border: 0;
+    background: 0 0;
 }
 .@{css-prefix}form-textarea textarea{
 	vertical-align: baseline;
@@ -157,13 +125,7 @@
 	.transition(all,.15s);
 	 width: 100%;
 	}
-.@{css-prefix}form-input:focus,
-.@{css-prefix}form-textarea textarea:focus{
-	border-color: @input-hover-color;
-	outline: 0;
-	box-shadow: 0 0 0 2px @input-focus-color;
 
-}
 
 .@{css-prefix}form-input[disabled]{
 	background-color: #eee;

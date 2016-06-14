@@ -2,14 +2,28 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { connect } from 'react-redux';
 import { changeListAction } from '../../redux/actions/HomeAction';
-import { AppPage,Row,Flex,Col,Carousel} from '../../components/index';
-
+import { AppPage,
+    Row,
+    Flex,
+    Col,
+    Carousel,
+    Icon,
+    Buttons,
+    FormGroup,
+    FormItems,
+    InputText
+} from '../../components/index';
+let divStyle = {
+    marginBottom: '10px',
+};
 export default class ElementContainer extends React.Component<any, any> {
   
   constructor(props) {
         super(props);
     }
-    
+    handleButton(){
+        alert('点击')
+    }
   render() {
       let settings = {
       dots: true,
@@ -19,7 +33,7 @@ export default class ElementContainer extends React.Component<any, any> {
       slidesToScroll: 1,
       autoplay:true
     };
-    
+
     return (
       <AppPage>
           <div>
@@ -74,6 +88,97 @@ export default class ElementContainer extends React.Component<any, any> {
                 <Col flex="3">3/5</Col>
                 <Col flex="2">2/5</Col>
             </Flex>
+          </div>
+          <div>
+              <h3>图文栅格布局 3列</h3>
+              <Row className="ui-grid">
+                  <Col span="33">
+                      <img src="https://gw.alicdn.com/tps/TB1i45NMpXXXXbwXVXXXXXXXXXX-206-206.jpg_300x300q75" />
+                  </Col>
+                  <Col span="33">
+                      <img src="https://gw.alicdn.com/tps/TB1i45NMpXXXXbwXVXXXXXXXXXX-206-206.jpg_300x300q75" />
+                  </Col>
+                  <Col span="33">
+                      <img src="https://gw.alicdn.com/tps/TB1i45NMpXXXXbwXVXXXXXXXXXX-206-206.jpg_300x300q75" />
+                  </Col>
+              </Row>
+              <h3>图文栅格布局 2列</h3>
+              <Row className="ui-grid">
+                  <Col span="50">
+                      <img src="https://gw.alicdn.com/tps/TB1i45NMpXXXXbwXVXXXXXXXXXX-206-206.jpg_300x300q75" />
+                  </Col>
+                  <Col span="50">
+                      <img src="https://gw.alicdn.com/tps/TB1i45NMpXXXXbwXVXXXXXXXXXX-206-206.jpg_300x300q75" />
+                  </Col>
+              </Row>
+              <h3>左文右图</h3>
+              <Flex className="ui-grid-flex">
+                  <Col flex="1" className="ui-grid-flex-info">
+                      世界最大玻璃观景台来中国了！去的人都吓跪了…
+                  </Col>
+                  <Col className="ui-grid-flex-img">
+                      <img src="https://img.alicdn.com/bao/uploaded/i1/100000229582992594/TB2RC0DpVXXXXc7XXXXXXXXXXXX_!!0-0-travel.jpg_300x300q75" />
+                  </Col>
+              </Flex>
+              <h3>左图右文</h3>
+              <Flex className="ui-grid-flex">
+                  <Col className="ui-grid-flex-img">
+                      <img src="https://img.alicdn.com/bao/uploaded/i1/100000229582992594/TB2RC0DpVXXXXc7XXXXXXXXXXXX_!!0-0-travel.jpg_300x300q75" />
+                  </Col>
+                  <Col flex="1" className="ui-grid-flex-info">
+                      世界最大玻璃观景台来中国了！去的人都吓跪了…
+                  </Col>
+              </Flex>
+              <h3>按钮</h3>
+              <div>
+                  <Buttons>默认default</Buttons>
+                  <Buttons type = "primary" >首选primary</Buttons>
+                  <Buttons type = "success">成功success</Buttons>
+                  <Buttons type = "danger">危险danger</Buttons>
+                  <Buttons type = "info">一般info</Buttons>
+                  <Buttons type = "warning">警告warning</Buttons>
+                  <Buttons type = "link">链接link</Buttons>
+              </div>
+              <h3>按钮尺寸</h3>
+              <div>
+                  <Buttons type = "primary" size="large">大号按钮</Buttons>
+                  <Buttons type = "primary" >中号按钮(默认)</Buttons>
+                  <Buttons type = "primary" size="small">小号按钮</Buttons>
+              </div>
+              <h3>按钮块</h3>
+              <div>
+                  <Buttons style={divStyle} display = "block" > 默认default</Buttons>
+                  <Buttons style={divStyle} type = "primary" display = "block" onClick = {() => this.handleButton() } >首选primary</Buttons>
+                  <Buttons style={divStyle} type = "success" display = "block" >成功success</Buttons>
+                  <Buttons style={divStyle} type = "danger" display = "block" >危险danger</Buttons>
+                  <Buttons style={divStyle} type = "info" display = "block" >一般info</Buttons>
+                  <Buttons style={divStyle} type = "warning" display = "block" >警告warning</Buttons>
+              </div>
+              <h3>按钮图标</h3>
+              <div>
+                  <Buttons type = "link"><Icon type="cloudupload"/> 上传文件</Buttons>
+                  <Buttons type = "link" ><Icon type ="delete"/> 删除</Buttons>
+                  <Buttons type = "link" ><Icon type="eyeo"/> 预览</Buttons>
+                  <Buttons type = "link" ><Icon type="edit"/> 修改</Buttons>
+                  <Buttons type = "link" ><Icon type="pluscircle"/> 添加</Buttons>
+                  <Buttons type = "primary" ><Icon type="search"/> 搜索</Buttons>
+                  <Buttons type = "warning" ><Icon type="like"/> 89</Buttons>
+              </div>
+              <h3>表单</h3>
+                <FormGroup>
+                    <FormItems className="ui-border-b">
+                        <InputText type="text" placeholder="QQ号/手机号/邮箱"/>
+                    </FormItems>
+                    <FormItems >
+                        <InputText type="password" placeholder="密码"/>
+                    </FormItems>
+                </FormGroup>
+              <h3>表单-行</h3>
+              <FormGroup horizontal>
+                  <FormItems label="用户名">
+                      <InputText type="test" />
+                  </FormItems>
+              </FormGroup>
           </div>
       </AppPage>
     )
