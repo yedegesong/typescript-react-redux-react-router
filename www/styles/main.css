@@ -27,3 +27,10 @@ body{
     font-size: .7rem;
 }
 
+h3{
+    padding:.48rem;
+}
+
+.ui-list li:last-child .ui-row-flex{
+    border:0 none;
+}

@@ -384,6 +384,21 @@ body {
 	    transform-origin: 100% 100%;
 	}
 }*/
+.ui-arrowlink {
+  position: relative;
+}
+.ui-arrowlink:before {
+  content: ' ';
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  margin-top: -6px;
+  border: #c7c7c7 solid;
+  border-width: 2px 0 0 2px;
+  width: 12px;
+  height: 12px;
+  -webkit-transform: rotate(135deg);
+}
 body {
   -webkit-backface-visibility: hidden;
 }
@@ -2725,6 +2740,11 @@ body {
 	左文右图
 --**/
 .ui-grid-flex {
+  padding: 0 .48rem;
+  background-color: #fff;
+}
+.ui-grid-flex.ui-grid-flex-mr {
+  padding: 0;
   margin: 0 .48rem;
 }
 .ui-grid-flex-info {
@@ -3458,7 +3478,7 @@ fieldset[disabled] .ui-btn {
   width: 30px;
   height: 30px;
   position: absolute;
-  top: 1px;
+  top: 3px;
   left: 0;
   border-radius: 100%;
   background-color: #fff;
@@ -3477,5 +3497,8 @@ fieldset[disabled] .ui-btn {
 }
 .ui-switch input:checked:after {
   left: 21px;
+}
+.ui-list {
+  background-color: #fff;
 }
 /*# sourceMappingURL=app.css.map */

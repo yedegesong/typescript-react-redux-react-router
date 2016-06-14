@@ -68,6 +68,14 @@ export default class ElementContainer extends React.Component<any, any> {
               <div className="ui-text-warning">在鼠标经过时颜色可以加深，就像默认的链接一样</div>
           </div>
           <div>
+              <h3>箭头链接</h3>
+              <div className="ui-list">
+                  <div className="ui-arrowlink">
+                      箭头链接
+                  </div>
+              </div>
+          </div>
+          <div>
             <h3>浮动布局</h3>
             <Row>
                 <Col span="10">10%</Col>
@@ -141,7 +149,7 @@ export default class ElementContainer extends React.Component<any, any> {
                   </Col>
               </Flex>
               <h3>左图右文</h3>
-              <Flex className="ui-grid-flex">
+              <Flex className="ui-grid-flex  ui-arrowlink">
                   <Col className="ui-grid-flex-img">
                       <img src="https://img.alicdn.com/bao/uploaded/i1/100000229582992594/TB2RC0DpVXXXXc7XXXXXXXXXXXX_!!0-0-travel.jpg_300x300q75" />
                   </Col>

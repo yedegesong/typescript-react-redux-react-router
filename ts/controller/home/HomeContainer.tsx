@@ -59,10 +59,10 @@ class HomeContainer extends React.Component<any, any> {
                 <div className="module-title ui-border-b">
                     热门头条
                 </div>
-                <ul className="hot-list-box">
+                <ul className="ui-list">
                     {list.map((v,i)=>{
                         return <li  key = {i} onTouchTap={()=>this.handleGoto(i)}>
-                            <Flex className="ui-grid-flex ui-border-b">
+                            <Flex className="ui-grid-flex ui-grid-flex-mr ui-border-b">
                                 <Col flex="1" className="ui-grid-flex-info">
                                     {v.title}
                                 </Col>
@@ -78,10 +78,10 @@ class HomeContainer extends React.Component<any, any> {
                 <div className="module-title ui-border-b">
                     热门头条
                 </div>
-                <ul className="hot-list-box">
+                <ul className="ui-list">
                     {list.map((v,i)=>{
                         return <li  key = {i} onTouchTap={()=>this.handleGoto(i)}>
-                            <Flex className="ui-grid-flex ui-border-b">
+                            <Flex className="ui-grid-flex ui-grid-flex-mr ui-border-b">
                                 <Col className="ui-grid-flex-img">
                                     <img src = {v.cover} />
                                 </Col>
