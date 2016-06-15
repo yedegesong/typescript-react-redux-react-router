@@ -1,5 +1,6 @@
 import * as React from "react";
 import * as classNames from "classnames";
+import * as ReactCSSTransitionGroup from "react-addons-css-transition-group";
 /**
  * transition:
  * fadeIn //淡入
@@ -12,7 +13,7 @@ export default class AppPage extends React.Component<any,any> {
         ptr:false,
         ptrTriggerDistance: 44,
         transition: 'fadeIn',
-        transitionTime: '.2s'
+        transitionTime: '.5s'
     }
     constructor(props){
         super(props);
@@ -20,7 +21,7 @@ export default class AppPage extends React.Component<any,any> {
     }
 
     render() {
-        const {children,transition,transitionTime,ptr,className} = this.props;
+        const {children,transition,location,transitionTime,ptr,className} = this.props;
         let addClassName = className;
         let Cls = classNames('ui-container',{
             [`${addClassName}`]: className,
@@ -29,9 +30,14 @@ export default class AppPage extends React.Component<any,any> {
         let styles = {
             animation: `${transition} ${transitionTime} forwards`
         };
+        /*<section className={Cls} style={ ptr ? {}: styles}>
+            {children}
+        </section>*/
         return (<section className={Cls} style={ ptr ? {}: styles}>
-                    {children}
-                </section>);
+                {children}
+            </section>
+
+        )
     }
 
 }

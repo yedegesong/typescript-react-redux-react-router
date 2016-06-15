@@ -34,3 +34,80 @@ h3{
 .ui-list li:last-child .ui-row-flex{
     border:0 none;
 }
+
+.content-view{
+    background-color:#fff;
+    color:#4d4f51;
+    padding:.96rem .48rem .48rem .48rem;
+}
+
+.content-view img{
+    width:100%;
+    height:auto;
+}
+.content-view .title{
+    font-size: .8rem;
+}
+
+/**-
+    切换动画
+-**/
+.example-enter {
+    opacity: 0.01;
+}
+
+.example-enter.example-enter-active {
+    opacity: 1;
+    transition: opacity 500ms ease-in;
+}
+
+/**-离开动画-**/
+.example-leave {
+    opacity: 1;
+}
+
+.example-leave.example-leave-active {
+    opacity: 0.01;
+    transition: opacity 300ms ease-in;
+}
+
+
+.page.home.page-enter {
+    z-index: 0
+}
+
+.page.home.page-enter, .page.home.page-leave.page-leave-active {
+    opacity: 1;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0)
+}
+
+.page.panel .bd {
+    padding-bottom: 20px
+}
+
+.page-enter {
+    z-index: 1024;
+    opacity: .01;
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+    -webkit-transition: all .2s ease;
+    transition: all .2s ease
+}
+
+.page-enter.page-enter-active, .page-leave {
+    opacity: 1;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0)
+}
+
+.page-leave {
+    -webkit-transition: all .2s ease;
+    transition: all .2s ease
+}
+
+.page-leave.page-leave-active {
+    opacity: .01;
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0)
+}

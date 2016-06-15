@@ -1,5 +1,7 @@
 /// <reference path="react/react.d.ts" />
 /// <reference path="react/react-dom.d.ts" />
+/// <reference path="react/react-addons-css-transition-group.d.ts" />
+/// <reference path="react/react-addons-transition-group.d.ts" />
 /// <reference path="jquery/jquery.d.ts" />
 /// <reference path="antd/antd.d.ts" />
 /// <reference path="redux/redux.d.ts" />

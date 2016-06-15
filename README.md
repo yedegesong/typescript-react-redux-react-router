@@ -36,6 +36,9 @@ tsd install
  
 ```
 
+### 预览地址
+
+http://yedegesong.github.io/mobile
 
 ### 在线文档
 

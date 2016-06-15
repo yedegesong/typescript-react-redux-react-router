@@ -28,7 +28,8 @@
     "react-router": "^2.4.1",
     "redux-router": "^1.0.0-beta8",
     "react-router-redux": "^4.0.4",
-    "react-slick": "^0.12.2"
+    "react-slick": "^0.12.2",
+    "react-addons-css-transition-group": "^15.1.0"
   },
   "devDependencies": {
     "css-loader": "^0.23.1",
