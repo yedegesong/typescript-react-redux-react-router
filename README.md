@@ -37,7 +37,7 @@ tsd install
 ```
 
 ### 预览地址
-
+>请用chrome 浏览器 手机模式下观看
 http://yedegesong.github.io/mobile
 
 ### 在线文档
