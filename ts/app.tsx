@@ -11,22 +11,14 @@ class App extends React.Component<any, any> {
         super(props);
    }
 
-
   render() {
     const {children,location} = this.props;
-  /*<ReactCSSTransitionGroup
-          component="div"
-          transitionName="page"
-          transitionEnterTimeout={500}
-          transitionLeaveTimeout={500}>
-          {React.cloneElement(children, {
-              key:location.pathname
-          })}
-      </ReactCSSTransitionGroup>**/
     return (
-      <div className="appMain">
+      <div className="viewpager">
+              {React.cloneElement(children, {
+                  key:location.key
+              })}
           <AppFooter  pathname = {location.pathname} />
-          {children}
       </div>
     )
   }

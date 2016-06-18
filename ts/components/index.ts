@@ -1,5 +1,7 @@
 import AppPage from './layout/AppPage';
+import AppHeader from './layout/AppHeader';
 import AppFooter from './layout/AppFooter';
+import Container from './layout/Container'
 import Icon from './icon/Icon';
 import Row from './grid/Row';
 import Flex from './grid/Flex';
@@ -21,6 +23,8 @@ import InfoText from './form/InfoText';
 export {
     AppPage,
     AppFooter,
+    AppHeader,
+    Container,
     Icon,
     Row,
     Flex,

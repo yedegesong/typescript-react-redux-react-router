@@ -75,7 +75,7 @@ export default class AppFooter extends React.Component<any,any> {
         }
         const {className} = this.props;
         let addClassName = className;
-        let Cls = classNames('ui-footer ui-bd-t',{
+        let Cls = classNames('ui-footer ui-border-t',{
             [`${addClassName}`]: className
         });
         return <footer className = {Cls}>

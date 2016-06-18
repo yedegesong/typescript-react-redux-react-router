@@ -334,29 +334,29 @@ body {
   display: -webkit-box;
   display: -moz-box;
 }
-.ui-bd-t {
+.ui-border-t {
   border-top: 1px solid #e9e9e9;
 }
-.ui-bd-r {
+.ui-border-r {
   border-right: 1px solid #e9e9e9;
 }
 .ui-border-b {
   border-bottom: 1px solid #e9e9e9;
 }
-.ui-bd-l {
+.ui-border-l {
   border-left: 1px solid #e9e9e9;
 }
 @media screen and (min-width: 640px) {
-  .ui-bd-t {
+  .ui-border-t {
     border-top: 1px solid #e9e9e9;
   }
-  .ui-bd-r {
+  .ui-border-r {
     border-right: 1px solid #e9e9e9;
   }
   .ui-border-b {
     border-bottom: 1px solid #e9e9e9;
   }
-  .ui-bd-l {
+  .ui-border-l {
     border-left: 1px solid #e9e9e9;
   }
 }
@@ -938,7 +938,7 @@ body {
 @-webkit-keyframes fadeInRight {
   0% {
     opacity: 0;
-    -webkit-transform: translateX(100%);
+    -webkit-transform: translateX(200%);
   }
   to {
     opacity: 1;
@@ -2589,14 +2589,53 @@ body {
     opacity: 0.89595833;
   }
 }
-.ui-footer {
-  position: fixed;
+/***
+
+**/
+body,
+html {
+  height: 100%;
+  overflow: hidden;
+}
+#app {
+  height: 100%;
   width: 100%;
-  z-index: 100;
-  left: 0;
+  overflow: hidden;
+}
+.viewpager {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  max-height: 100%;
+  width: 100%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+.viewpager {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+/****/
+.ui-container {
+  max-height: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+.ui-container {
+  height: 100%;
+}
+.ui-footer ~ .ui-container,
+.ui-footer ~ .animation-view {
+  border-bottom: 60px solid transparent;
 }
 .ui-footer {
-  bottom: 0;
+  width: 100%;
+}
+.ui-footer {
   height: 56px;
   background-color: #fff;
   color: #A5A5A5;
@@ -2619,8 +2658,21 @@ body {
 .ui-tiled li .icon {
   font-size: 20px;
 }
-.ui-footer ~ .ui-container {
-  border-bottom: 60px solid transparent;
+.ui-header {
+  position: relative;
+  width: 100%;
+  height: 45px;
+  line-height: 45px;
+  background-color: #fff;
+}
+.ui-header h1 {
+  text-align: center;
+  font-size: 18px;
+}
+.ui-go-return {
+  position: absolute;
+  left: .48rem;
+  width: 1.5rem;
 }
 /**-
 	浮动布局

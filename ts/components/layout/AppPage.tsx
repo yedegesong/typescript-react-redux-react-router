@@ -30,9 +30,6 @@ export default class AppPage extends React.Component<any,any> {
         let styles = {
             animation: `${transition} ${transitionTime} forwards`
         };
-        /*<section className={Cls} style={ ptr ? {}: styles}>
-            {children}
-        </section>*/
         return (<section className={Cls} style={ ptr ? {}: styles}>
                 {children}
             </section>

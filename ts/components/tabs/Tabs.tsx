@@ -10,7 +10,7 @@ export default class Tabs extends React.Component<any, any> {
     constructor(props){
         super(props);
         this.state = {
-            activeKey: this.props.activeKey
+            activeKey: props.activeKey
         }
         
     }

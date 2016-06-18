@@ -2,7 +2,7 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { connect } from 'react-redux';
 import { changeListAction } from '../../redux/actions/HomeAction';
-import { AppPage } from '../../components/index';
+import { AppPage,AppHeader } from '../../components/index';
 function unescapeHTML(escapedHTML) {
   return escapedHTML.replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&').replace(/&quot;/g, '"');
 }
@@ -16,15 +16,19 @@ export default class ContentContainer extends React.Component<any, any> {
   render() {
     let {params} = this.props;
     return (
-      <AppPage transition="fadeInRight">
-          <div className="content-view">
-            <h2 className="title">你一定想知道：我是标题{params.id}</h2>
-            <div>
-              <div dangerouslySetInnerHTML={{__html: unescapeHTML(data.result.data.detail)}}/>
+        <div className="viewpager">
+          <AppHeader />
+          <AppPage >
+            <div className="content-view">
+              <h2 className="title">你一定想知道：我是标题{params.id}</h2>
+              <div>
+                <div dangerouslySetInnerHTML={{__html: unescapeHTML(data.result.data.detail)}}/>
+              </div>
             </div>
-          </div>
 
-      </AppPage>
+          </AppPage>
+        </div>
+
     )
   }
   
