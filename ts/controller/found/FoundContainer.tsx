@@ -21,7 +21,8 @@ import { AppPage,
     TabPane,
     Tips,
     Toast,
-    Tabel
+    Tabel,
+    Counter
 } from '../../components/index';
 export default class FoundContainer extends React.Component<any, any> {
   
@@ -152,6 +153,10 @@ export default class FoundContainer extends React.Component<any, any> {
         <div>
           <Buttons onClick = {() => this.handleToast() } >打开加载中</Buttons>
           <Buttons onClick = {() => this.handleToast(1) } >关闭加载中</Buttons>
+        </div>
+        <h3>计步器</h3>
+        <div>
+          <Counter />
         </div>
       </AppPage>
     )

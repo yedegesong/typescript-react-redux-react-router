@@ -26,6 +26,7 @@ import TabPane from './tabs/TabPane';
 import Tips from './tips/Tips';
 import Toast from './toast/Toast';
 import Tabel from './tabel/Tabel';
+import Counter from './counter/Counter'
 export {
     AppPage,
     AppFooter,
@@ -53,5 +54,6 @@ export {
     TabPane,
     Tips,
     Toast,
-    Tabel
+    Tabel,
+    Counter
 }

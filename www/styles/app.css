@@ -3872,4 +3872,74 @@ fieldset[disabled] .ui-btn {
   min-height: .01%;
   overflow-x: auto;
 }
+/**
+    计步器
+**/
+.ui-count {
+  display: block;
+  overflow: hidden;
+}
+.ui-count a {
+  position: relative;
+  float: left;
+  display: inline-block;
+  width: 1.2rem;
+  height: 1.08rem;
+  border: 1px solid #DCDCDC;
+  background: #F5F5F5;
+  text-align: center;
+}
+.ui-count .count-min {
+  float: left;
+  display: inline-block;
+  width: 1.2rem;
+  border: 1px solid #DCDCDC;
+  background: #F5F5F5;
+  text-align: center;
+}
+.ui-count .count-min:after {
+  position: absolute;
+  top: .52rem;
+  left: .533rem;
+  border-bottom: .053rem solid #878787;
+  width: .32rem;
+  height: 1px;
+  content: ' ';
+}
+.ui-count .count-add:before {
+  position: absolute;
+  top: .52rem;
+  left: .533rem;
+  border-bottom: .053rem solid #878787;
+  width: .32rem;
+  height: 1px;
+  content: ' ';
+}
+.ui-count .count-add:after {
+  position: absolute;
+  top: .52rem;
+  left: .533rem;
+  border-bottom: .053rem solid #878787;
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+  width: .32rem;
+  height: 1px;
+  content: ' ';
+}
+.ui-count .count-num {
+  float: left;
+  width: 3rem;
+  height: .84rem;
+  border: 0;
+  border-top: 1px solid #DCDCDC;
+  border-bottom: 1px solid #DCDCDC;
+  background: #FFF;
+  text-align: center;
+  line-height: .84rem;
+  font-size: .48rem;
+}
+.ui-count .count-num {
+  height: 1.08rem;
+  line-height: 1.08rem;
+}
 /*# sourceMappingURL=app.css.map */
