@@ -28,7 +28,7 @@ class Mask extends React.Component<MaskProps, any> {
      */
     render() {
         return (
-            <div className="cwgj-mask"  onClick = {this.handleClick.bind(this) } ></div>
+            <div className="ui-mask"  onClick = {this.handleClick.bind(this) } ></div>
         );
     }
 

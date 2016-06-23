@@ -20,7 +20,7 @@ export default class TabPane extends React.Component<any, any> {
      */
     render() {
         const {children, className} = this.props;
-        let Cls = classNames('cwgj-tabpane', {
+        let Cls = classNames('ui-tabpane', {
             [`${className}`]: className
         });
         return (

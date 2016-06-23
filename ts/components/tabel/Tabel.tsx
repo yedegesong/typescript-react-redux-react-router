@@ -42,7 +42,7 @@ export default class Table extends React.Component<any, any> {
                 attributeArr.push(c.dataIndex)
             }
         });
-        return (<div className="cwgj-table">
+        return (<div className="ui-table">
             <table>
                 {this.getHeader(columns) }
                  <tbody>

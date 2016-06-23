@@ -20,6 +20,12 @@ import RadioGroup from './form/RadioGroup';
 import SwitchCell from './form/SwitchCell';
 import Textarea from './form/Textarea';
 import InfoText from './form/InfoText';
+import Dialog from './dialog/Dialog';
+import Tabs from './tabs/Tabs';
+import TabPane from './tabs/TabPane';
+import Tips from './tips/Tips';
+import Toast from './toast/Toast';
+import Tabel from './tabel/Tabel';
 export {
     AppPage,
     AppFooter,
@@ -41,5 +47,11 @@ export {
     Textarea,
     RadioGroup,
     InfoText,
-    SwitchCell
+    SwitchCell,
+    Dialog,
+    Tabs,
+    TabPane,
+    Tips,
+    Toast,
+    Tabel
 }

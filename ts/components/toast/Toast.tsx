@@ -18,11 +18,12 @@ document.body.appendChild(_toastHolder);
      * body 主容器 包括头部和菜单
      */
     render() {
+        let {tips} = this.props;
         return(
-            <div className="cwgj-loading-block">
-                <div className="cwgj-loading-cnt">
-                    <i className="cwgj-loading-bright"></i>
-                    <p>{this.props.tips}</p>
+            <div className="ui-loading-block">
+                <div className="ui-loading-cnt">
+                    <i className="ui-loading-bright"></i>
+                    <p>{tips}</p>
                 </div>
             </div>
         );

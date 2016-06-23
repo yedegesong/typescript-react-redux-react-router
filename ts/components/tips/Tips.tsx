@@ -1,17 +1,10 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import * as classNames from "classnames";
-interface TipsProps {
-    timeout?:any;
-    onFinish?:Function;
-    showTime?:number;
-    message?:string;
-    type?:number;
-}
 const _messageHolder = document.createElement('div');
 document.body.appendChild(_messageHolder);
 
- class Tips extends React.Component<TipsProps,any> {
+ class Tips extends React.Component<any,any> {
 
     static defaultProps = {
         timeout:2000,
@@ -23,23 +16,24 @@ document.body.appendChild(_messageHolder);
         super(props);
         this.state = {
             show: false,
-            showTime:this.props.showTime,
-            message: this.props.message,
-            timeout: this.props.timeout,
-            type: this.props.type
+            showTime:props.showTime,
+            message: props.message,
+            timeout: props.timeout,
+            type: props.type
         };
     }
 
     componentDidMount() {
+        let {timeout,onFinish} = this.props;
         //延迟显示
         this.setState({showTime: setTimeout(()=>{
             this.setState({ show: true});
         },this.state.showTime)});
         //隐藏并且删除
-        if(this.props.timeout){
+        if(timeout){
             this.setState({timeout: setTimeout(()=>{
                 this.setState({ show: false});
-                if(this.props.onFinish) this.props.onFinish(this);
+                if(onFinish){onFinish(this)};
                 setTimeout(() => {
                     ReactDOM.unmountComponentAtNode(_messageHolder);
                 }, 500);
@@ -56,16 +50,16 @@ document.body.appendChild(_messageHolder);
      * body 主容器 包括头部和菜单
      */
     render() {
-        let className = classNames('cwgj-poptips', {
+        let className = classNames('ui-poptips', {
             'show': this.state.show,
-            'cwgj-poptips-success': this.state.type == 1,
-            'cwgj-poptips-info': this.state.type == 2,
-            'cwgj-poptips-warn': this.state.type == 3
+            'ui-poptips-success': this.state.type == 1,
+            'ui-poptips-info': this.state.type == 2,
+            'ui-poptips-warn': this.state.type == 3
         });
 
         return (
             <div className={ className }>
-                <div className="cwgj-poptips-cnt">
+                <div className="ui-poptips-cnt">
                     <p>{this.state.message}</p>
                 </div>
             </div>

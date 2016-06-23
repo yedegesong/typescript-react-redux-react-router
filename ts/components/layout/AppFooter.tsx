@@ -20,8 +20,8 @@ export default class AppFooter extends React.Component<any,any> {
             active:props.pathname,
             links:[
                 { title: '首页', url: '/', icon: 'github' },
-                { title: '发现', url: '/found', icon: 'eyeo' },
-                { title: '组件', url: '/element', icon: 'ellipsis' }
+                { title: 'UI组件', url: '/element', icon: 'ellipsis' },
+                { title: 'UI插件', url: '/found', icon: 'eyeo' }
             ]
         }
 

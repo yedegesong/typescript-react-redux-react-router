@@ -16,7 +16,9 @@ import { AppPage,
     InputRadio,
     RadioGroup,
     SwitchCell,
-    CheckGroup
+    CheckGroup,
+    Dialog,
+    Tabel
 } from '../../components/index';
 
 let divStyle = {
@@ -26,39 +28,74 @@ export default class ElementContainer extends React.Component<any, any> {
    date:any;
     constructor(props) {
             super(props);
+        this.state = {
+            columns: [{
+                title: '姓名',
+                dataIndex: 'name',
+                key: 'name',
+                render: (text) => <a href="#">{text}</a>,
+            }, {
+                title: '年龄',
+                dataIndex: 'age',
+                key: 'age',
+            }, {
+                title: '住址',
+                dataIndex: 'address',
+                key: 'address',
+            }, {
+                title: '操作',
+                key: 'operation',
+                render: (text, record) => (
+                    <span>
+                            <Buttons type = "danger" size="small" onClick={() => { this.handDelete(text, record) } }><Icon type ="delete"/> 删除</Buttons>
+                        </span>
+                ),
+            }],
+            data: [{
+                key: '1',
+                name: '小明',
+                age: 32,
+                address: '西湖区湖底公园1号',
+            }, {
+                key: '2',
+                name: '小红',
+                age: 42,
+                address: '西湖区湖底公园2号',
+            }, {
+                key: '3',
+                name: '小东',
+                age: 32,
+                address: '西湖区湖底公园3号',
+            }
+            ]
+        }
             this.date = [{
                 label: '北京',
                 value: '1'
             }];
         }
+    handDelete(text, record) {
+        this.state.data.map((d, i) => {
+            if (d.key == record.key) {
+                this.state.data.splice(i, 1)
+            }
+        })
+        this.setState({
+            data: this.state.data
+        })
+    }
     handleInputChange(event) {
         console.log(event.target.value)
     }
     handleButton(){
         alert('点击')
     }
+   
   render() {
-      let settings = {
-      dots: true,
-      infinite: true,
-      speed: 500,
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      autoplay:true
-    };
-
     return (
       <AppPage>
           <div>
-            <h3>轮播组件</h3>
-            <Carousel {...settings}>
-                <div><h3>1</h3></div>
-                <div><h3>2</h3></div>
-                <div><h3>3</h3></div>
-                <div><h3>4</h3></div>
-                <div><h3>5</h3></div>
-                <div><h3>6</h3></div>
-            </Carousel>
+              <h3>总布局</h3>
           </div>
           <div>
               <h3>文本字体颜色</h3>
@@ -246,6 +283,10 @@ export default class ElementContainer extends React.Component<any, any> {
                           <CheckGroup  options={[{ label: '短信通知', value: '1' }, { label: '邮件通知', value: '2' }]} defaultValue={['1']} />
                       </FormItems>
                   </FormGroup>
+              </div>
+              <h3>表格</h3>
+              <div>
+                  <Tabel columns={this.state.columns} dataSource={this.state.data} />
               </div>
           </div>
       </AppPage>

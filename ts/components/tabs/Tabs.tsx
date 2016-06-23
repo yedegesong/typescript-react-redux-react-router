@@ -15,11 +15,12 @@ export default class Tabs extends React.Component<any, any> {
         
     }
     onChange(value,key){
+        let {onChange} = this.props;
         this.setState({
             activeKey: key
         })
-        if (this.props.onChange) {
-            this.props.onChange(value, key, this);
+        if (onChange) {
+            onChange(value, key, this);
         }
     }
 
@@ -41,11 +42,11 @@ export default class Tabs extends React.Component<any, any> {
     render() {
         const {children} = this.props;
         return (
-            <div className="cwgj-tabs">
-                <div className="cwgj-tabs-title">
+            <div className="ui-tabs">
+                <div className="ui-tabs-title">
                     {this.TabsTitle()}
                 </div>
-                <div className="cwgj-tabs-content">
+                <div className="ui-tabs-content">
                     {this.tabConten() }
                 </div>
             </div>)

@@ -34,7 +34,7 @@ class Dialog extends React.Component<DialogProps, any> {
     renderActions() {
         return this.props.actions.map((action, idx) => {
 
-            let className = classNames('chgj-btn_dialog', {
+            let className = classNames('ui-btn_dialog', {
                 default: !action.primary,
                 primary: action.primary
             });
@@ -65,11 +65,11 @@ class Dialog extends React.Component<DialogProps, any> {
 
     render() {
         let className = classNames({
-            'cwgj-dialog_alert': this.props.type == 'alert',
-            'cwgj-dialog_confirm': this.props.type == 'confirm'
+            'ui-dialog_alert': this.props.type == 'alert',
+            'ui-dialog_confirm': this.props.type == 'confirm'
         });
 
-        let contentClassName = 'chgj-dialog';
+        let contentClassName = 'ui-dialog';
         if (this.props.className) contentClassName += ` ${this.props.className}`;
 
         let Children = React.cloneElement(this.props.children);
@@ -77,12 +77,12 @@ class Dialog extends React.Component<DialogProps, any> {
         return (
             <div id={this.props.id} className={className}>
                 <div {...this.props} className={contentClassName}>
-                    <div className="chgj-dialog_hd">
-                        {this.props.title ? <strong className="chgj-dialog_title">{this.props.title}</strong> : null}
+                    <div className="ui-dialog_hd">
+                        {this.props.title ? <strong className="ui-dialog_title">{this.props.title}</strong> : null}
                         {this.props.header}
                     </div>
-                    <div className="chgj-dialog_bd">{this.props.children}</div>
-                    <div className="chgj-dialog_ft">
+                    <div className="ui-dialog_bd">{this.props.children}</div>
+                    <div className="ui-dialog_ft">
                         {this.renderActions() }
                     </div>
                 </div>
