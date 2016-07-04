@@ -12,10 +12,10 @@ var path = require('path');
 var webpack           = require('webpack');
 //提取公用CSS
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
+//var HtmlWebpackPlugin = require('html-webpack-plugin');
 var node_modules = path.resolve(__dirname, 'node_modules');
 var pathToSrc  = path.resolve(__dirname, 'src');
 var pathToBuild  = path.resolve(__dirname, 'www');
-
 var config = {
     pathToBuild: pathToBuild,
     devtool: "source-map",
@@ -60,7 +60,12 @@ var config = {
             name: "common",
             filename:"common.js"
         }),
-        new webpack.HotModuleReplacementPlugin()
+        new webpack.HotModuleReplacementPlugin(),
+        /*new HtmlWebpackPlugin({
+            title: 'react 组件',
+            addLinkCss:[ '/styles/iconfont.css','/styles/app.css'],
+            template: './templates/index.html'
+        })*/
     ]
 };
 

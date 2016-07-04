@@ -12,7 +12,7 @@ export default class AppPage extends React.Component<any,any> {
         className: '',
         ptr:false,
         ptrTriggerDistance: 44,
-        transition: 'fadeIn',
+        transition: 'fadeInRight',
         transitionTime: '.5s'
     }
     constructor(props){

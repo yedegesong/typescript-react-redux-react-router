@@ -2,7 +2,7 @@
   "name": "aiduobao-webapp",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./ts/components/index.ts",
   "scripts": {
     "build": "webpack -p --config webpack.build.config.js --progress --colors  --profile",
     "dev": "node webpack.server.js",
