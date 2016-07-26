@@ -51,7 +51,7 @@ export default class FoundContainer extends React.Component<any, any> {
       { label: '确定', onClick: buyConfirm, primary: true }
     ];
 
-    Dialog.show(<div>你确定要删除吗?</div>, actions);
+    Dialog.show(<div className="aa">你确定要删除吗?</div>, actions);
     event.preventDefault();
     event.stopPropagation();
 

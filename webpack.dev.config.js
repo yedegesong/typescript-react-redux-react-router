@@ -12,7 +12,8 @@ var path = require('path');
 var webpack           = require('webpack');
 //提取公用CSS
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
-//var HtmlWebpackPlugin = require('html-webpack-plugin');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+var SplitByPathPlugin = require('webpack-split-by-path');
 var node_modules = path.resolve(__dirname, 'node_modules');
 var pathToSrc  = path.resolve(__dirname, 'src');
 var pathToBuild  = path.resolve(__dirname, 'www');
@@ -28,7 +29,8 @@ var config = {
         ]
     },
     resolve:     {
-        extensions: ['', '.js', '.jsx','.ts','.tsx']
+        extensions: ['', '.js', '.jsx','.ts','.tsx'] //当requrie的模块找不到时，添加这些后缀
+
     },
     //输出文件配置
     output:      {
@@ -56,11 +58,34 @@ var config = {
         { test: /\.js$/, loader: "source-map-loader" }
     ],
     plugins:     [
-        new webpack.optimize.CommonsChunkPlugin({
+        /*new webpack.optimize.CommonsChunkPlugin({
             name: "common",
             filename:"common.js"
-        }),
+        }),*/
+        new SplitByPathPlugin([
+            {
+                name: 'common',
+                path: node_modules
+            }
+        ]),
         new webpack.HotModuleReplacementPlugin(),
+        new HtmlWebpackPlugin({
+            title: 'react ui组件123',
+            addLinkCss: ['/styles/iconfont.css', '/styles/app.css'],
+            template: './template/index.ejs',
+            hash: true,    //为静态资源生成hash值
+        })
+        /*new HtmlWebpackPlugin({                        //根据模板插入css/js等生成最终HTML
+           filename:'./www/index.html',    //生成的html存放路径，相对于 path
+           template:'./view/index.html',    //html模板路径
+           inject:true,    //允许插件修改哪些内容，包括head与body
+           hash:true,    //为静态资源生成hash值
+           title: 'react 组件',
+           minify:{    //压缩HTML文件
+           removeComments:true,    //移除HTML中的注释
+            collapseWhitespace:false    //删除空白符与换行符
+      }
+     })*/
         /*new HtmlWebpackPlugin({
             title: 'react 组件',
             addLinkCss:[ '/styles/iconfont.css','/styles/app.css'],

@@ -1,19 +1,19 @@
 import { push} from 'react-router-redux';
+import Api from '../../pub/Api';
 /**
  * dispatch(push('/community')) 异步跳转
  * @type {string}
  */
 const CHANGE_LIST = 'CHANGE_LIST';
 
-let OnChangeList = (state) => {
-    return { type: CHANGE_LIST, state };
+let OnChangeList = () => {
+    return { type: CHANGE_LIST};
 }
-function changeListAction(data) {
+function changeListAction() {
     return (dispatch, getState) => {
-        let oldList = getState().HomeReducer.homeList
-        let newList = oldList.concat(data);
-        dispatch(OnChangeList(newList));
-
+        Api.queryContent().then((data)=>{
+            console.log(data)
+        })
         /**
          * 异步跳转
          */

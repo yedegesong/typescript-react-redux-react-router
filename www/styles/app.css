@@ -2628,10 +2628,6 @@ html {
 .ui-container {
   height: 100%;
 }
-.ui-footer ~ .ui-container,
-.ui-footer ~ .animation-view {
-  border-bottom: 60px solid transparent;
-}
 .ui-footer {
   width: 100%;
 }

@@ -41,9 +41,9 @@ class HomeContainer extends React.Component<any, any> {
     }
 
   render() {
-
    let {HomeReducer,dispatch} = this.props;
    let list = HomeReducer.homeList;
+      console.log(list)
    let arr = this.state.fondData;
     return (
       <AppPage transition="fadeIn">
@@ -120,11 +120,7 @@ class HomeContainer extends React.Component<any, any> {
   
   componentDidMount():void {
        let { HomeReducer ,dispatch,history} = this.props;
-       let Updata = [{
-          title:'#',
-          cover:'#'
-			  }]
-       //dispatch(changeListAction(Updata))
+       dispatch(changeListAction())
     }
 
   componentWillUnmount():void {

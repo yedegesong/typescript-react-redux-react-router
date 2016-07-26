@@ -15,6 +15,8 @@ var webpack           = require('webpack');
 //提取公用CSS
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 //var commonsPlugin = new webpack.optimize.CommonsChunkPlugin('common.js');
+//动态HTML 插入
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 var SplitByPathPlugin = require('webpack-split-by-path');
 var node_modules = path.resolve(__dirname, 'node_modules');
 var pathToSrc  = path.resolve(__dirname, 'src');
@@ -68,6 +70,9 @@ var config = {
         new webpack.DefinePlugin({
                 'process.env': {
                     NODE_ENV: JSON.stringify('production')
+                },
+                'text':{
+                     a:'小明'
                 }
             }),
          new ExtractTextPlugin("app.css"),
@@ -80,15 +85,19 @@ var config = {
                 }
             }),
         //commonsPlugin
-        new webpack.optimize.CommonsChunkPlugin({
+        /*new webpack.optimize.CommonsChunkPlugin({
             name: "common",
             filename:"common.js"
             
+        }),*/
+        new HtmlWebpackPlugin({
+            title: 'react 组件',
+            template: './template/index.html'
         }),
-       /* new SplitByPathPlugin([
+       new SplitByPathPlugin([
                     {name: 'common', path: path.join(__dirname, 'node_modules')}
                 ]
-            )*/
+            )
     ]
 };
 
