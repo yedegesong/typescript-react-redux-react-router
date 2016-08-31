@@ -43,7 +43,7 @@ class HomeContainer extends React.Component<any, any> {
   render() {
    let {HomeReducer,dispatch} = this.props;
    let list = HomeReducer.homeList;
-      console.log(list)
+      console.log(this.props)
    let arr = this.state.fondData;
     return (
       <AppPage transition="fadeIn">

@@ -48,8 +48,8 @@ var config = {
                 exclude: /node_modules/
             },
             {
-                test:   /\.css$/,
-                loader: 'style!css'
+                test:   /\.(less|css)$/,
+                loader: 'style!css!less'
             }
         ],
     },
@@ -71,7 +71,7 @@ var config = {
         new webpack.HotModuleReplacementPlugin(),
         new HtmlWebpackPlugin({
             title: 'react ui组件123',
-            addLinkCss: ['/styles/iconfont.css', '/styles/app.css'],
+            addLinkCss: ['/styles/iconfont.css'],
             template: './template/index.ejs',
             hash: true,    //为静态资源生成hash值
         })

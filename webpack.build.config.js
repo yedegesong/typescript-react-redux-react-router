@@ -55,10 +55,8 @@ var config = {
                 exclude: /node_modules/
             },
             {
-                test:   /\.css$/,
-                //构建的CSS
-                loader: ExtractTextPlugin.extract("style-loader", "css-loader")
-                
+                test: /\.(le|c)ss$/, // Only .css files
+                loader: ExtractTextPlugin.extract('style', 'css!less') //'style!css' // Run both loaders
             }
         ],
     },
@@ -70,9 +68,6 @@ var config = {
         new webpack.DefinePlugin({
                 'process.env': {
                     NODE_ENV: JSON.stringify('production')
-                },
-                'text':{
-                     a:'小明'
                 }
             }),
          new ExtractTextPlugin("app.css"),
@@ -91,8 +86,10 @@ var config = {
             
         }),*/
         new HtmlWebpackPlugin({
-            title: 'react 组件',
-            template: './template/index.html'
+            title: 'react ui组件123',
+            addLinkCss: ['/styles/iconfont.css'],
+            template: './template/index.ejs',
+            hash: true,    //为静态资源生成hash值
         }),
        new SplitByPathPlugin([
                     {name: 'common', path: path.join(__dirname, 'node_modules')}

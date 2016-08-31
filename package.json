@@ -43,6 +43,8 @@
     "typescript": "^1.8.9",
     "webpack": "^1.12.8",
     "webpack-dev-server": "^1.12.1",
-    "webpack-split-by-path": "^0.0.8"
+    "webpack-split-by-path": "^0.0.8",
+    "less": "^2.7.1",
+    "less-loader": "^2.2.3"
   }
 }
