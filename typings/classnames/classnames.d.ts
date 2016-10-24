@@ -20,7 +20,7 @@ interface ClassNamesFn {
 declare var classNames: any;
 
 declare module "classnames" {
-	export = classNames
+	export = classNames;
 }
 
 

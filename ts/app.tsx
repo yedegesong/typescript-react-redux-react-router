@@ -13,7 +13,6 @@ class App extends React.Component<any, any> {
 
   render() {
     const {children,location} = this.props;
-    
     return (
       <div className="viewpager">
               {React.cloneElement(children, {

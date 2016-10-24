@@ -9,15 +9,22 @@ import {BaseStore} from './redux/store/BaseStore';
 import URL_CONFIG from './routersConfig';
 const store = BaseStore();
 const history = syncHistoryWithStore(hashHistory, store);
+function requireAuth(nextState, replace) {
 
+    replace({
+      pathname: '/',
+      state: { nextPathname: nextState.location.pathname }
+    })
+  
+}
 let appRootComponent = (
     <Provider store = {store}>
         <Router history={history}>
             <Route path="/" component={App}>
                 <IndexRoute component={Modeules.HomeContainer}/>
                 <Route path = {URL_CONFIG.details(':id')} component={Modeules.ContentContainer}/>
-                <Route path = {URL_CONFIG.found()} component={Modeules.FoundContainer}/>
-                <Route path = {URL_CONFIG.element()} component={Modeules.ElementContainer}/>
+                <Route path = {URL_CONFIG.found()} component={Modeules.FoundContainer} onEnter={requireAuth}/>
+                <Route path = {URL_CONFIG.element()} component={Modeules.ElementContainer} />
             </Route>
         </Router>
     </Provider>

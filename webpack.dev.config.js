@@ -29,8 +29,12 @@ var config = {
         ]
     },
     resolve:     {
-        extensions: ['', '.js', '.jsx','.ts','.tsx'] //当requrie的模块找不到时，添加这些后缀
-
+        
+        extensions: ['', '.js', '.jsx','.ts','.tsx'], //当requrie的模块找不到时，添加这些后缀
+        //设置别名
+        alias:{ 
+            'Tool': path.join(__dirname,'/ts/pub/Tool.ts')
+        }
     },
     //输出文件配置
     output:      {

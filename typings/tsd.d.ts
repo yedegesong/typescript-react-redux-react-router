@@ -19,3 +19,4 @@
 /// <reference path="redux-router/redux-router.d.ts" />
 /// <reference path="react-router-redux/react-router-redux.d.ts" />
 /// <reference path="react-slick/react-slick.d.ts" />
+/// <reference path="plus/plus.d.ts" />

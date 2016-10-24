@@ -3,7 +3,10 @@ import * as ReactDOM from "react-dom";
 import { connect } from 'react-redux';
 import { changeListAction } from '../../redux/actions/HomeAction';
 import { AppPage ,Carousel,Flex,Col,Row} from '../../components/index';
-import Tool from '../../pub/Tool';
+//import Tool from '../../pub/Tool';
+import Tool from 'Tool';
+
+//Tool.push('https://www.baidu.com')
 import URL_CONFIG from '../../routersConfig';
 let settings = {
     dots: true,
@@ -43,7 +46,6 @@ class HomeContainer extends React.Component<any, any> {
   render() {
    let {HomeReducer,dispatch} = this.props;
    let list = HomeReducer.homeList;
-      console.log(this.props)
    let arr = this.state.fondData;
     return (
       <AppPage transition="fadeIn">
