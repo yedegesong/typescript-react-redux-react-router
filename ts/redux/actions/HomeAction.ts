@@ -12,7 +12,7 @@ let OnChangeList = () => {
 function changeListAction() {
     return (dispatch, getState) => {
         Api.queryContent().then((data)=>{
-            console.log(data)
+           //console.log(data)
         })
         /**
          * 异步跳转

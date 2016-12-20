@@ -16,8 +16,6 @@ export default class ContentContainer extends React.Component<any, any> {
   render() {
     let {params} = this.props;
     return (
-        <div className="viewpager">
-          <AppHeader />
           <AppPage >
             <div className="content-view">
               <h2 className="title">你一定想知道：我是标题{params.id}</h2>
@@ -25,10 +23,7 @@ export default class ContentContainer extends React.Component<any, any> {
                 <div dangerouslySetInnerHTML={{__html: unescapeHTML(data.result.data.detail)}}/>
               </div>
             </div>
-
           </AppPage>
-        </div>
-
     )
   }
   

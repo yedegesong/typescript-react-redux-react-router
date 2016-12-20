@@ -2,7 +2,7 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { connect } from 'react-redux';
 import { changeListAction } from '../../redux/actions/HomeAction';
-import { AppPage ,Carousel,Flex,Col,Row} from '../../components/index';
+import { AppPage ,Container,Carousel,Flex,Col,Row} from '../../components/index';
 //import Tool from '../../pub/Tool';
 import Tool from 'Tool';
 
@@ -18,7 +18,7 @@ let settings = {
     lazyLoad:true
 };
 class HomeContainer extends React.Component<any, any> {
-  
+
   constructor(props) {
         super(props);
 
@@ -48,8 +48,8 @@ class HomeContainer extends React.Component<any, any> {
    let list = HomeReducer.homeList;
    let arr = this.state.fondData;
     return (
-      <AppPage transition="fadeIn">
-        <div>
+      <Container>
+        <section className="container-scrollable">
             <Carousel {...settings}>
                 {this.state.banner.map((v,i)=>{
                     return <div key = {i}>
@@ -115,8 +115,8 @@ class HomeContainer extends React.Component<any, any> {
                     </Row>
                 </div>
             </div>
-        </div>
-      </AppPage>
+        </section>
+      </Container>
     )
   }
   

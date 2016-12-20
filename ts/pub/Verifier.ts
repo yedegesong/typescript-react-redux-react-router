@@ -20,6 +20,28 @@ var VERIFIERS = {
         },
         tip: '不能为空'
     },
+    require2: {
+        /**
+         * 验证文本域不能为空以及不能存在特殊字符
+         * @type {any|boolean|boolean}
+         */
+        test: (value) => {
+            
+            return (/[^\u4e00-\u9fa5]/).test(value.toString().trim());
+        },
+        tip: '格式不对'
+    },
+    require3: {
+        /**
+         * 实际需验证文本域的值,验证参数值
+         * @type {any|boolean|boolean}
+         */
+        test: (value) => {
+            
+            return (/^[\w\W]{6,16}$/).test(value.toString().trim());
+        },
+        tip: '格式不对'
+    },
     password:{
         test: (value, verifierValue) => {
             if (!verifierValue) {
@@ -51,6 +73,12 @@ var VERIFIERS = {
             return (/^\d+$/).test(value.toString().trim());
         },
         tip: '只能为数字'
+    },
+    confusion_number: {
+        test: (value) => {
+            return (/(?=.*?[a-zA-Z])(?=.*?[0-9])[a-zA-Z0-9]{6,16}$/).test(value.toString().trim());
+        },
+        tip: '请输入正确的格式'
     },
     mobile: {
         test: (value) => {
@@ -147,7 +175,7 @@ let verifyConfig = (input, verifyConfigs, immediately = false) => {
 
             if (typeof verifyOneResult == 'string') {
 
-                let tips = verifyConfig['name'] + verifyOneResult;
+                let tips:any = verifyConfig['name'] + verifyOneResult;
                 tips = {name: configName, tips};
                 if (immediately) {
                     return [tips];

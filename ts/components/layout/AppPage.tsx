@@ -12,27 +12,36 @@ export default class AppPage extends React.Component<any,any> {
         className: '',
         ptr:false,
         ptrTriggerDistance: 44,
-        transition: 'fadeInRight',
+        //transition: 'fadeInRight',
+        transition: '',
         transitionTime: '.5s'
     }
     constructor(props){
         super(props);
-        
     }
 
     render() {
         const {children,transition,location,transitionTime,ptr,className} = this.props;
         let addClassName = className;
-        let Cls = classNames('ui-container',{
+        /*let Cls = classNames('ui-container',{
+            [`${addClassName}`]: className,
+            [`${transition}`]:transition
+        });*/
+        let Cls = classNames('view',{
             [`${addClassName}`]: className,
             [`${transition}`]:transition
         });
         let styles = {
             animation: `${transition} ${transitionTime} forwards`
         };
-        return (<section className={Cls} style={ ptr ? {}: styles}>
+        /*return (<section className={Cls} style={ ptr ? {}: styles}>
                 {children}
             </section>
+
+        )*/
+        return (<div className={Cls}>
+                {children}
+            </div>
 
         )
     }

@@ -29,7 +29,7 @@ export default class Container extends React.Component<any,any> {
             return (
                     <ReactCSSTransitionGroup
                         component="div"
-                        className='views'
+                        className={classNames('views', className)}
                         transitionName={`view-transition-${transition}`}
                         transitionEnterTimeout={TRANSITION_TIMEOUT}
                         transitionLeaveTimeout={TRANSITION_TIMEOUT}
@@ -38,11 +38,13 @@ export default class Container extends React.Component<any,any> {
                         {children}
                     </ReactCSSTransitionGroup>
                 )
-
         }
        
+       let Cls = classNames('view',{
+            [`${className}`]: className
+        });
         return (
-            <div className="container container-fill container-column" {...this.props}>
+            <div className = {Cls} {...this.props}>
                 {children}
             </div>
         )

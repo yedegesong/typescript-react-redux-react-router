@@ -39,3 +39,21 @@ body, html {
 	height:100%;
 }
 
+.container-fill {
+    height: 100%;
+}
+
+.container-column, .container-row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    max-height: 100%;
+    width: 100%;
+}
+
+.container-column {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
