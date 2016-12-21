@@ -5,7 +5,7 @@ import { Provider, connect } from 'react-redux';
 import { AppFooter, Container } from './components/index';
 import { hashHistory } from 'react-router';
 class App extends React.Component<any, any> {
-
+    
     constructor(props) {
         super(props);
     }
@@ -16,9 +16,8 @@ class App extends React.Component<any, any> {
             params,
             children,
         } = this.props;
-        let transition = children.props.transition || 'sfr';
-
-        console.log(children.props)
+        //let transition = children.props.transition || 'sfr';
+       let transition = location.pathname =='/'? 'rfr' : 'sfr';
         return (
             <Container className="container container-fill container-column" id="sk-container">
                 <Container transition={transition}>
@@ -38,8 +37,7 @@ let mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(App);
-
-
+const IndexApp = connect(mapStateToProps)(App);
+export default IndexApp;
 
 

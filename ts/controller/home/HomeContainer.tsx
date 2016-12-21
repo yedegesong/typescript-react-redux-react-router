@@ -1,11 +1,14 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { connect } from 'react-redux';
+import { bindActionCreators} from 'redux';
+import { connect} from 'react-redux';
 import { changeListAction } from '../../redux/actions/HomeAction';
 import { AppPage ,Container,Carousel,Flex,Col,Row} from '../../components/index';
 //import Tool from '../../pub/Tool';
 import Tool from 'Tool';
 
+//自己书写的基类
+import BaseContainer from '../../common/BaseContainer';
 //Tool.push('https://www.baidu.com')
 import URL_CONFIG from '../../routersConfig';
 let settings = {
@@ -17,11 +20,11 @@ let settings = {
     autoplay:true,
     lazyLoad:true
 };
-class HomeContainer extends React.Component<any, any> {
-
+class HomeContainer extends BaseContainer{
+   
   constructor(props) {
         super(props);
-
+        console.log(this.props)
         this.state = {
             banner:[
                 {url:'https://gw.alicdn.com/tps/TB1MdsQJVXXXXbdXVXXXXXXXXXX-750-360.jpg_640x640q90',link:''},
@@ -121,7 +124,7 @@ class HomeContainer extends React.Component<any, any> {
   }
   
   componentDidMount():void {
-       let { HomeReducer ,dispatch,history} = this.props;
+        let { HomeReducer ,dispatch,history} = this.props;
        dispatch(changeListAction())
     }
 
@@ -131,6 +134,7 @@ class HomeContainer extends React.Component<any, any> {
     
 }
 
+
 let mapStateToProps = (state) => {
     return {
         routing:state.routing,
@@ -138,4 +142,6 @@ let mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(HomeContainer);
+const HomeAppContainer = connect(mapStateToProps)(HomeContainer);
+export default HomeAppContainer;
+
