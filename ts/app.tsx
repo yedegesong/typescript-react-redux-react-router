@@ -2,10 +2,8 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { bindActionCreators } from 'redux';
 import { Provider, connect } from 'react-redux';
-import { AppFooter,Container} from './components/index';
-import { hashHistory} from 'react-router';
-import * as ReactCSSTransitionGroup from "react-addons-css-transition-group";
-let transition = 'sfr';
+import { AppFooter, Container } from './components/index';
+import { hashHistory } from 'react-router';
 class App extends React.Component<any, any> {
 
     constructor(props) {
@@ -13,14 +11,20 @@ class App extends React.Component<any, any> {
     }
 
     render() {
-        const {children, location} = this.props;
-        console.log(children)
+        let {
+            location,
+            params,
+            children,
+        } = this.props;
+        let transition = children.props.transition || 'sfr';
+
+        console.log(children.props)
         return (
-            <Container className="container container-fill container-column">
+            <Container className="container container-fill container-column" id="sk-container">
                 <Container transition={transition}>
-                        {React.cloneElement(children, {
-                            key: location.key
-                        })}
+                    {React.cloneElement(children, {
+                        key: location.pathname
+                    })}
                 </Container>
                 <AppFooter pathname={location.pathname} />
             </Container>
