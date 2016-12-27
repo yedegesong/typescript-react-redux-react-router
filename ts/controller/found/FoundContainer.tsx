@@ -117,7 +117,7 @@ export default class FoundContainer extends React.Component<any, any> {
       autoplay:true
     };
     return (
-      <AppPage>
+      <section className="container-scrollable">
         <div>
           <h3>轮播组件</h3>
           <Carousel {...settings}>
@@ -158,7 +158,7 @@ export default class FoundContainer extends React.Component<any, any> {
         <div>
           <Counter />
         </div>
-      </AppPage>
+      </section>
     )
   }
   

@@ -11,10 +11,10 @@ const store = BaseStore();
 const history = syncHistoryWithStore(hashHistory, store);
 function requireAuth(nextState, replace) {
 
-    replace({
+    /*replace({
       pathname: '/',
       state: { nextPathname: nextState.location.pathname }
-    })
+    })*/
   
 }
 let appRootComponent = (
