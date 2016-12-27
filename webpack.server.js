@@ -6,7 +6,10 @@
 var webpack          = require('webpack');
 var WebpackDevServer = require('webpack-dev-server');
 var config           = require('./webpack.dev.config');
-console.log('build path:' + config.pathToBuild);
+var open           = require('open');
+const opts_config = {
+    port:8676
+}
 // "dev": "webpack-dev-server --devtool eval --progress --colors --hot  --content-base build",
 new WebpackDevServer(webpack(config), {
     devtool: config.devtool,
@@ -20,10 +23,10 @@ new WebpackDevServer(webpack(config), {
         colors: true,
         progress: true
     },
-}).listen(8676, '0.0.0.0', function (err, result) {
+}).listen(opts_config.port, '0.0.0.0', function (err, result) {
     if (err) {
         console.log(err);
     }
-
-    console.log('Listening at 127.0.0.1:8676');
+    console.log('Listening at 127.0.0.1:8676/dist/');
+    open(`http://127.0.0.1:${opts_config.port}/dist/`);
 });

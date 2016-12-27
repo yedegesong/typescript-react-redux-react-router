@@ -47,7 +47,7 @@ var config = {
         loaders: [
             {
                 test:    /\.(js|jsx|tsx|ts)?$/,
-                loaders:['ts-loader'],
+                loaders:['react-hot','ts-loader'],
                 //loaders: ['react-hot', 'babel','ts-loader'],
                 exclude: /node_modules/
             },
