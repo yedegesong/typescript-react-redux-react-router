@@ -22,12 +22,19 @@ import { AppPage,
     Tips,
     Toast,
     Tabel,
-    Counter
+    Counter,ActionSheet
 } from '../../components/index';
 export default class FoundContainer extends React.Component<any, any> {
   
   constructor(props) {
         super(props);
+        this.state = {
+            price:0,
+            number:0,
+            buy_type:1,
+            active:-1,
+            toggle:true,
+        };
     }
 
   handleButton(type?:number){
@@ -98,6 +105,13 @@ export default class FoundContainer extends React.Component<any, any> {
     console.log(index);
   }
 
+  close(){
+    console.log('a')
+        this.setState({
+            toggle:false
+        })
+    }
+
   handleToast(type?:number){
     if(type ==1){
       Toast.close();
@@ -118,6 +132,28 @@ export default class FoundContainer extends React.Component<any, any> {
     };
     return (
       <section className="container-scrollable">
+      <ActionSheet toggle ={this.state.toggle} isShow = {this.state.toggle} closeCallback={()=>this.close()}>
+                    <ul className="pay-status">
+                        <li>
+                            <div>
+                                <h3>我的钱包支付</h3>
+                                <p>(钱包余额</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <h3>微信支付</h3>
+                                <p>推荐已安装微信的用户使用</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <h3>支付宝支付</h3>
+                                <p>推荐支付宝用户使用</p>
+                            </div>
+                        </li>
+                    </ul>
+                </ActionSheet>
         <div>
           <h3>轮播组件</h3>
           <Carousel {...settings}>

@@ -60,7 +60,6 @@ class Dialog extends React.Component<DialogProps, any> {
 
     close() {
         this.props.onClose && this.props.onClose();
-        Mask.close();
     }
 
     render() {
@@ -75,17 +74,20 @@ class Dialog extends React.Component<DialogProps, any> {
         let Children = React.cloneElement(this.props.children);
 
         return (
-            <div id={this.props.id} className={className}>
-                <div {...this.props} className={contentClassName}>
-                    <div className="ui-dialog_hd">
-                        {this.props.title ? <strong className="ui-dialog_title">{this.props.title}</strong> : null}
-                        {this.props.header}
-                    </div>
-                    <div className="ui-dialog_bd">{this.props.children}</div>
-                    <div className="ui-dialog_ft">
-                        {this.renderActions() }
+            <div>
+                <div id={this.props.id} className={className}>
+                    <div {...this.props} className={contentClassName}>
+                        <div className="ui-dialog_hd">
+                            {this.props.title ? <strong className="ui-dialog_title">{this.props.title}</strong> : null}
+                            {this.props.header}
+                        </div>
+                        <div className="ui-dialog_bd">{this.props.children}</div>
+                        <div className="ui-dialog_ft">
+                            {this.renderActions() }
+                        </div>
                     </div>
                 </div>
+                <Mask isShow = {true}/>
             </div>
         );
     }
@@ -110,17 +112,16 @@ let onClose = (div) => {
     div.parentNode && div.parentNode.removeChild(div);
 };
 
-let init = (content?: any, actions?: any, callback?: Function, title?: string) => {
+let init = (content?: any, actions?: any,title?: string, callback?: any) => {
     let dialogHolder = document.createElement('div');
     document.body.appendChild(dialogHolder);
     let dailog = {};
 
-    ReactDOM.render(<Dialog type="confirm" show={true} onClose={() => onClose(dialogHolder) }
+    ReactDOM.render(<Dialog type="confirm" show={true} title = {title} onClose={() => onClose(dialogHolder) }
         actions={actions}>{content}</Dialog>, dialogHolder, function() {
             dailog = this;
             callback && callback(dailog);
         });
-    Mask.open({ autoClose: false });
 };
 
 

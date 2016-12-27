@@ -1,52 +1,35 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 interface MaskProps {
-    autoClose?: boolean;
+    isShow?: boolean;
+    onClick?:Function;
 }
-const _maskHolder = document.createElement('div');
-document.body.appendChild(_maskHolder);
 
-class Mask extends React.Component<MaskProps, any> {
+export default class Mask extends React.Component<MaskProps, any> {
 
     static defaultProps = {
-        autoClose: true
+        isShow: true
     }
 
     constructor(props) {
         super(props);
+        this.close = this.close.bind(this);
     }
 
-    handleClick() {
-        let {autoClose} = this.props;
-        if (!autoClose) { return false;}
-        setTimeout(() => {
-            ReactDOM.unmountComponentAtNode(_maskHolder);
-        }, 15);
+    close(event){
+        let {onClick} = this.props;
+        if(onClick){
+            onClick(event)
+        }
     }
     /**
      * body 主容器 包括头部和菜单
      */
     render() {
+        let style = {display:this.props.isShow ? 'block' : 'none'}
         return (
-            <div className="ui-mask"  onClick = {this.handleClick.bind(this) } ></div>
+            <div className="ui-mask" style = {style} onClick = {this.close}></div>
         );
     }
 
 }
-
-export default {
-
-    open(config?: any) {
-        ReactDOM.render(
-            <Mask {...config} />,
-            _maskHolder
-        );
-    },
-
-    close() {
-        setTimeout(() => {
-            ReactDOM.unmountComponentAtNode(_maskHolder);
-        }, 15);
-    }
-
-};
