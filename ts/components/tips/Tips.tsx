@@ -1,10 +1,17 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import * as classNames from "classnames";
-const _messageHolder = document.createElement('div');
-document.body.appendChild(_messageHolder);
+const css_prefix = 'ui';
+interface TipsProps {
+    timeout?:any;
+    onFinish?:Function;
+    showTime?:number;
+    message?:string;
+    type?:number;
+    onClose:Function;
+}
 
- class Tips extends React.Component<any,any> {
+ class Tips extends React.Component<TipsProps,any> {
 
     static defaultProps = {
         timeout:2000,
@@ -16,50 +23,44 @@ document.body.appendChild(_messageHolder);
         super(props);
         this.state = {
             show: false,
-            showTime:props.showTime,
-            message: props.message,
-            timeout: props.timeout,
-            type: props.type
+            showTime:this.props.showTime,
+            message: this.props.message,
+            timeout: this.props.timeout,
+            type: this.props.type
         };
     }
 
     componentDidMount() {
-        let {timeout,onFinish} = this.props;
         //延迟显示
         this.setState({showTime: setTimeout(()=>{
             this.setState({ show: true});
         },this.state.showTime)});
         //隐藏并且删除
-        if(timeout){
+        if(this.props.timeout){
             this.setState({timeout: setTimeout(()=>{
                 this.setState({ show: false});
-                if(onFinish){onFinish(this)};
-                setTimeout(() => {
-                    ReactDOM.unmountComponentAtNode(_messageHolder);
-                }, 500);
+                if(this.props.onFinish) this.props.onFinish(this);
+                this.props.onClose();
             },this.state.timeout)})
         }
     }
-
+   
     componentWillUnmount(){
         clearTimeout(this.state.showTime);
         clearTimeout(this.state.timeout);
     }
-
+   
     /**
      * body 主容器 包括头部和菜单
      */
     render() {
-        let className = classNames('ui-poptips', {
-            'show': this.state.show,
-            'ui-poptips-success': this.state.type == 1,
-            'ui-poptips-info': this.state.type == 2,
-            'ui-poptips-warn': this.state.type == 3
+        let className = classNames(`${css_prefix}-poptips`, {
+            'show': this.state.show
         });
 
         return (
             <div className={ className }>
-                <div className="ui-poptips-cnt">
+                <div className={`${css_prefix}-poptips-cnt`}>
                     <p>{this.state.message}</p>
                 </div>
             </div>
@@ -68,9 +69,22 @@ document.body.appendChild(_messageHolder);
 
 }
 
+/**
+ * 关掉弹出提示框
+ */
+let  onClose = (messageHolder)=>{
+    setTimeout(() => {
+        ReactDOM.unmountComponentAtNode(messageHolder);
+        messageHolder.parentNode && messageHolder.parentNode.removeChild(messageHolder);
+                }, 500);        
+}
+
 export default function (config?:any):any {
+
+let _messageHolder = document.createElement('div');
+    document.body.appendChild(_messageHolder);
     ReactDOM.render(
-        <Tips {...config} />,
+        <Tips {...config} onClose={() => onClose(_messageHolder)}/>,
         _messageHolder
     );
 }
