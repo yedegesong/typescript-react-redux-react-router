@@ -1,46 +1,47 @@
 import * as React from "react";
 import { connect } from 'react-redux';
 import { changeListAction } from '../../redux/actions/HomeAction';
-import { AppPage,
-    Row,
-    Flex,
-    Col,
-    Carousel,
-    Icon,
-    Buttons,
-    FormGroup,
-    FormItems,
-    InputText,
-    InputSelect,
-    InputRadio,
-    RadioGroup,
-    SwitchCell,
-    CheckGroup,
-    Dialog,
-    Tabs,
-    TabPane,
-    Tips,
-    Toast,
-    Tabel,
-    Counter,ActionSheet
+import {
+  AppPage,
+  Row,
+  Flex,
+  Col,
+  Carousel,
+  Icon,
+  Buttons,
+  FormGroup,
+  FormItems,
+  InputText,
+  InputSelect,
+  InputRadio,
+  RadioGroup,
+  SwitchCell,
+  CheckGroup,
+  Dialog,
+  Tabs,
+  TabPane,
+  Tips,
+  Toast,
+  Tabel,
+  Counter, ActionSheet
 } from '../../components/index';
 export default class FoundContainer extends React.Component<any, any> {
-  
-  constructor(props) {
-        super(props);
-        this.state = {
-            price:0,
-            number:0,
-            buy_type:1,
-            active:-1,
-            toggle:true,
-        };
-    }
 
-  handleButton(type?:number){
+  constructor(props) {
+    super(props);
+    this.state = {
+      price: 0,
+      number: 0,
+      buy_type: 1,
+      active: -1,
+      toggle: true,
+    };
+  }
+
+  handleButton(type?: number) {
     Tips({
-      message:'我是提醒信息',
-      type:type
+      message: '我是提醒信息',
+      type: type
     });
   }
 
@@ -95,7 +96,7 @@ export default class FoundContainer extends React.Component<any, any> {
       { label: '取消' },
       { label: '确定', onClick: buyConfirm, primary: true }
     ];
-    Dialog.show(<div><InputText type="text" placeholder="请输入账号"/></div>, actions);
+    Dialog.show(<div><InputText type="text" placeholder="请输入账号" /></div>, actions);
     event.preventDefault();
     event.stopPropagation();
   }
@@ -105,20 +106,19 @@ export default class FoundContainer extends React.Component<any, any> {
     console.log(index);
   }
 
-  close(){
+  close() {
     console.log('a')
-        this.setState({
-            toggle:false
-        })
-    }
+    this.setState({
+      toggle: false
+    })
+  }
 
-  handleToast(type?:number){
-    if(type ==1){
+  handleToast(type?: number) {
+    if (type == 1) {
       Toast.close();
-    }else{
-      Toast.open({tips:'图片上传中'});
+    } else {
+      Toast.open({ tips: '图片上传中' });
     }
-
   }
 
   render() {
@@ -128,32 +128,32 @@ export default class FoundContainer extends React.Component<any, any> {
       speed: 500,
       slidesToShow: 1,
       slidesToScroll: 1,
-      autoplay:true
+      autoplay: true
     };
     return (
       <section className="container-scrollable">
-      <ActionSheet toggle ={this.state.toggle} isShow = {this.state.toggle} closeCallback={()=>this.close()}>
-                    <ul className="pay-status">
-                        <li>
-                            <div>
-                                <h3>我的钱包支付</h3>
-                                <p>(钱包余额</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div>
-                                <h3>微信支付</h3>
-                                <p>推荐已安装微信的用户使用</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div>
-                                <h3>支付宝支付</h3>
-                                <p>推荐支付宝用户使用</p>
-                            </div>
-                        </li>
-                    </ul>
-                </ActionSheet>
+        <ActionSheet toggle={this.state.toggle} isShow={this.state.toggle} closeCallback={() => this.close()}>
+          <ul className="pay-status">
+            <li>
+              <div>
+                <h3>我的钱包支付</h3>
+                <p>(钱包余额</p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <h3>微信支付</h3>
+                <p>推荐已安装微信的用户使用</p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <h3>支付宝支付</h3>
+                <p>推荐支付宝用户使用</p>
+              </div>
+            </li>
+          </ul>
+        </ActionSheet>
         <div>
           <h3>轮播组件</h3>
           <Carousel {...settings}>
@@ -167,28 +167,28 @@ export default class FoundContainer extends React.Component<any, any> {
         </div>
         <h3>弹框</h3>
         <div>
-          <Buttons onClick = {(event) =>  this._dialog(event)  } >普通提示弹框</Buttons>
-          <Buttons onClick = {(event) =>  this._dialog1(event) } >单个提示弹框</Buttons>
-          <Buttons onClick = {(event) => this._dialog2(event) } >提示弹框回调在弹框</Buttons>
-          <Buttons onClick = {(event) => this._dialog3(event) } >提示弹框组件弹框</Buttons>
+          <Buttons onClick={(event) => this._dialog(event)} >普通提示弹框</Buttons>
+          <Buttons onClick={(event) => this._dialog1(event)} >单个提示弹框</Buttons>
+          <Buttons onClick={(event) => this._dialog2(event)} >提示弹框回调在弹框</Buttons>
+          <Buttons onClick={(event) => this._dialog3(event)} >提示弹框组件弹框</Buttons>
         </div>
         <h3>面板切换</h3>
-        <Tabs onChange = {(value, index) => this.callback(value, index) }>
+        <Tabs onChange={(value, index) => this.callback(value, index)}>
           <TabPane tab="选项卡一" key="1">选项卡一内容</TabPane>
           <TabPane tab="选项卡二" key="2">选项卡二内容</TabPane>
           <TabPane tab="选项卡三" key="3">选项卡三内容</TabPane>
         </Tabs>
         <h3>全局提示</h3>
         <div>
-          <Buttons onClick = {() => this.handleButton() } >显示普通</Buttons>
-          <Buttons onClick = {() => this.handleButton(1) } >成功</Buttons>
-          <Buttons onClick = {() => this.handleButton(2) } >报错</Buttons>
-          <Buttons onClick = {() => this.handleButton(3) } >警告</Buttons>
+          <Buttons onClick={() => this.handleButton()} >显示普通</Buttons>
+          <Buttons onClick={() => this.handleButton(1)} >成功</Buttons>
+          <Buttons onClick={() => this.handleButton(2)} >报错</Buttons>
+          <Buttons onClick={() => this.handleButton(3)} >警告</Buttons>
         </div>
         <h3>提示</h3>
         <div>
-          <Buttons onClick = {() => this.handleToast() } >打开加载中</Buttons>
-          <Buttons onClick = {() => this.handleToast(1) } >关闭加载中</Buttons>
+          <Buttons onClick={() => this.handleToast()} >打开加载中</Buttons>
+          <Buttons onClick={() => this.handleToast(1)} >关闭加载中</Buttons>
         </div>
         <h3>计步器</h3>
         <div>
@@ -197,14 +197,14 @@ export default class FoundContainer extends React.Component<any, any> {
       </section>
     )
   }
-  
-  componentDidMount():void {
-      
-    }
 
-  componentWillUnmount():void {
-      
+  componentDidMount(): void {
+
   }
-    
+
+  componentWillUnmount(): void {
+
+  }
+
 }
 
