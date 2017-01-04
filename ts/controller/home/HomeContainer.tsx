@@ -24,7 +24,6 @@ class HomeContainer extends BaseContainer{
    
   constructor(props) {
         super(props);
-        console.log(this.props)
         this.state = {
             banner:[
                 {url:'https://gw.alicdn.com/tps/TB1MdsQJVXXXXbdXVXXXXXXXXXX-750-360.jpg_640x640q90',link:''},

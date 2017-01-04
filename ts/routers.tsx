@@ -25,6 +25,7 @@ let appRootComponent = (
                 <Route path = {URL_CONFIG.details(':id')} component={Modeules.ContentContainer}/>
                 <Route path = {URL_CONFIG.found()} component={Modeules.FoundContainer} onEnter={requireAuth}/>
                 <Route path = {URL_CONFIG.element()} component={Modeules.ElementContainer} />
+                <Route path = {URL_CONFIG.pull_load()} component={Modeules.PullLoadContainer} />
             </Route>
         </Router>
     </Provider>

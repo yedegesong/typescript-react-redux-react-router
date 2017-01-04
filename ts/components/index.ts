@@ -28,6 +28,7 @@ import Toast from './toast/Toast';
 import Tabel from './tabel/Tabel';
 import Counter from './counter/Counter';
 import ActionSheet from './actionsheet/ActionSheet';
+import PullLoad from './pullload/PullLoad';
 export {
     AppPage,
     AppFooter,
@@ -57,5 +58,6 @@ export {
     Toast,
     Tabel,
     Counter,
-    ActionSheet
+    ActionSheet,
+    PullLoad
 }

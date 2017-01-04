@@ -31,7 +31,6 @@ export default class AppFooter extends React.Component<any,any> {
 
     }
     handleGoto(element){
-        console.log(element)
         hashHistory.push({pathname:element.url});
     }
 

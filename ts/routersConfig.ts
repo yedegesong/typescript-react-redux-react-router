@@ -24,6 +24,9 @@ const URL_CONFIG = {
      */
     element:()=>{
         return `element`;
+    },
+     pull_load:()=>{
+        return `pull_load`;
     }
 };
 

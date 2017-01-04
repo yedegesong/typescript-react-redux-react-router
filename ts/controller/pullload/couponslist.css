@@ -1,0 +1,58 @@
+.ui-grid-flex-list{
+	padding: 9px 12px;
+	background-color: #ffffff;
+	border-bottom: 1px solid #D7D9DB;
+}
+
+.ui-grid-flex-img{
+	width: 100px;
+	height: 100px;
+}
+.qq-list-title{
+	font-size: 17px;
+	color: #292E33;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}	
+.qq-location{
+	padding: 6px 0;
+	font-size: 11px;
+	color: #7D7E80;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+.qq-price{
+	margin-top: 14px;
+}
+.qq-yh{
+	font-size: 28px;
+	color: #292E33;
+}
+.qq-yj{
+	font-size: 13px;
+	color: #AFB0B3;
+	text-decoration: line-through;
+}
+
+.qq-btn-default{
+	color: #FF7029;
+    background-color: #fff;
+    border: 1px solid #FF7029;
+    border-radius: 100px;
+	font-size: 13px;
+	padding: 5px 18px;
+}
+.qq-btn-default.on{
+	color: #AFB0B3;
+    background-color: #fff;
+    border: 1px solid #AFB0B3;
+}
+.ui-grid-flex-info{
+	border-bottom: none;
+}

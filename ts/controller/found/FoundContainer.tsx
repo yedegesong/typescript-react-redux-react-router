@@ -23,8 +23,9 @@ import {
   Tips,
   Toast,
   Tabel,
-  Counter, ActionSheet
+  Counter, ActionSheet, Container
 } from '../../components/index';
+import Tool from '../../pub/Tool';
 export default class FoundContainer extends React.Component<any, any> {
 
   constructor(props) {
@@ -34,7 +35,7 @@ export default class FoundContainer extends React.Component<any, any> {
       number: 0,
       buy_type: 1,
       active: -1,
-      toggle: true,
+      toggle: false
     };
   }
 
@@ -131,70 +132,83 @@ export default class FoundContainer extends React.Component<any, any> {
       autoplay: true
     };
     return (
-      <section className="container-scrollable">
-        <ActionSheet toggle={this.state.toggle} isShow={this.state.toggle} closeCallback={() => this.close()}>
-          <ul className="pay-status">
-            <li>
-              <div>
-                <h3>我的钱包支付</h3>
-                <p>(钱包余额</p>
+      <Container>
+        <header className="ui-header">
+          <h1>UI插件</h1>
+        </header>
+        <section className="container-scrollable">
+          <ActionSheet toggle={this.state.toggle} isShow={this.state.toggle} closeCallback={() => this.close()}>
+            <ul className="pay-status">
+              <li>
+                <div>
+                  <h3>我的钱包支付</h3>
+                  <p>(钱包余额)</p>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <h3>微信支付</h3>
+                  <p>推荐已安装微信的用户使用</p>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <h3>支付宝支付</h3>
+                  <p>推荐支付宝用户使用</p>
+                </div>
+              </li>
+            </ul>
+          </ActionSheet>
+          <div>
+            <div>
+              <h3>箭头链接</h3>
+              <div className="ui-list">
+                <div className="ui-arrowlink" onClick={(event) => {Tool.push('pull_load');}}>
+                  箭头链接
+                  </div>
               </div>
-            </li>
-            <li>
-              <div>
-                <h3>微信支付</h3>
-                <p>推荐已安装微信的用户使用</p>
-              </div>
-            </li>
-            <li>
-              <div>
-                <h3>支付宝支付</h3>
-                <p>推荐支付宝用户使用</p>
-              </div>
-            </li>
-          </ul>
-        </ActionSheet>
-        <div>
-          <h3>轮播组件</h3>
-          <Carousel {...settings}>
-            <div><h3>1</h3></div>
-            <div><h3>2</h3></div>
-            <div><h3>3</h3></div>
-            <div><h3>4</h3></div>
-            <div><h3>5</h3></div>
-            <div><h3>6</h3></div>
-          </Carousel>
-        </div>
-        <h3>弹框</h3>
-        <div>
-          <Buttons onClick={(event) => this._dialog(event)} >普通提示弹框</Buttons>
-          <Buttons onClick={(event) => this._dialog1(event)} >单个提示弹框</Buttons>
-          <Buttons onClick={(event) => this._dialog2(event)} >提示弹框回调在弹框</Buttons>
-          <Buttons onClick={(event) => this._dialog3(event)} >提示弹框组件弹框</Buttons>
-        </div>
-        <h3>面板切换</h3>
-        <Tabs onChange={(value, index) => this.callback(value, index)}>
-          <TabPane tab="选项卡一" key="1">选项卡一内容</TabPane>
-          <TabPane tab="选项卡二" key="2">选项卡二内容</TabPane>
-          <TabPane tab="选项卡三" key="3">选项卡三内容</TabPane>
-        </Tabs>
-        <h3>全局提示</h3>
-        <div>
-          <Buttons onClick={() => this.handleButton()} >显示普通</Buttons>
-          <Buttons onClick={() => this.handleButton(1)} >成功</Buttons>
-          <Buttons onClick={() => this.handleButton(2)} >报错</Buttons>
-          <Buttons onClick={() => this.handleButton(3)} >警告</Buttons>
-        </div>
-        <h3>提示</h3>
-        <div>
-          <Buttons onClick={() => this.handleToast()} >打开加载中</Buttons>
-          <Buttons onClick={() => this.handleToast(1)} >关闭加载中</Buttons>
-        </div>
-        <h3>计步器</h3>
-        <div>
-          <Counter />
-        </div>
-      </section>
+            </div>
+            <h3>轮播组件</h3>
+            <Carousel {...settings}>
+              <div><h3>1</h3></div>
+              <div><h3>2</h3></div>
+              <div><h3>3</h3></div>
+              <div><h3>4</h3></div>
+              <div><h3>5</h3></div>
+              <div><h3>6</h3></div>
+            </Carousel>
+          </div>
+          <h3>弹框</h3>
+          <div>
+            <Buttons onClick={(event) => this._dialog(event)} >普通提示弹框</Buttons>
+            <Buttons onClick={(event) => this._dialog1(event)} >单个提示弹框</Buttons>
+            <Buttons onClick={(event) => this._dialog2(event)} >提示弹框回调在弹框</Buttons>
+            <Buttons onClick={(event) => this._dialog3(event)} >提示弹框组件弹框</Buttons>
+          </div>
+          <h3>面板切换</h3>
+          <Tabs onChange={(value, index) => this.callback(value, index)}>
+            <TabPane tab="选项卡一" key="1">选项卡一内容</TabPane>
+            <TabPane tab="选项卡二" key="2">选项卡二内容</TabPane>
+            <TabPane tab="选项卡三" key="3">选项卡三内容</TabPane>
+          </Tabs>
+          <h3>全局提示</h3>
+          <div>
+            <Buttons onClick={() => this.handleButton()} >显示普通</Buttons>
+            <Buttons onClick={() => this.handleButton(1)} >成功</Buttons>
+            <Buttons onClick={() => this.handleButton(2)} >报错</Buttons>
+            <Buttons onClick={() => this.handleButton(3)} >警告</Buttons>
+          </div>
+          <h3>提示</h3>
+          <div>
+            <Buttons onClick={() => this.handleToast()} >打开加载中</Buttons>
+            <Buttons onClick={() => this.handleToast(1)} >关闭加载中</Buttons>
+          </div>
+          <h3>计步器</h3>
+          <div>
+            <Counter />
+          </div>
+        </section>
+      </Container>
     )
   }
 
